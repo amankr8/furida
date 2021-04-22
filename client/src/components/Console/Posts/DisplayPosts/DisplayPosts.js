@@ -1,0 +1,25 @@
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Post from './Post'
+
+const DisplayPosts = () => {
+    const posts = useSelector((state) => state.posts)
+    return (
+        <div className="container border rounded pt-5 bg-light">
+            <h4 className="text-center mb-3">YOUR POSTS</h4>
+            {
+                !posts.length ? (
+                    <div className="text-center my-4">
+                        <div class="spinner-border text-muted" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
+                    posts.map((currentpost) => <Post key={currentpost._id} post={currentpost} />)
+                )
+            }
+        </div>
+    ) 
+}
+
+export default DisplayPosts
