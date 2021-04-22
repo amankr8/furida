@@ -1,12 +1,10 @@
 const express = require('express')
 const app = express()
 var cors = require('cors')
+const port = process.env.PORT
 const dotenv = require('dotenv')
 dotenv.config()
 
-const port = process.env.PORT
-
-//mongodb
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
@@ -15,7 +13,6 @@ app.use(express.json({}))
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
-//routes
 app.use('/posts', require('./routes/posts'))
 app.use('/messages', require('./routes/messages'))
 
