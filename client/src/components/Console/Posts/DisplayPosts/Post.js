@@ -25,7 +25,7 @@ const Post = (props) => {
     return (
         <div>
             {/* Post */}
-            <div className="card mb-4">
+            <div className="card mb-3">
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
