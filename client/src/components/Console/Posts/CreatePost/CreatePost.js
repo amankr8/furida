@@ -4,7 +4,8 @@ import { createPost } from '../../../../store/actions/posts';
 
 const CreatePost = () => {
     const [postData, setPostData] = useState({
-        desc: ''
+        desc: '',
+        link: ''
     })
 
     const dispatch = useDispatch();
@@ -18,7 +19,8 @@ const CreatePost = () => {
 
     const resetForm = () => {
         setPostData({
-            desc: '' 
+            desc: '',
+            link: '' 
         })
     }
 
@@ -27,7 +29,10 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">
-                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />
+                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something..." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />
+                </div>
+                <div className="form-group">
+                    <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
                 </div>
                 <button type="submit" className="btn btn-danger">Publish</button>
             </form>

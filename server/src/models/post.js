@@ -5,6 +5,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    link: {
+        type: String,
+        required: true
+    },
     time: {
         type: Date,
         default: Date.now

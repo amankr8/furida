@@ -24,14 +24,15 @@ const Post = (props) => {
     }
 
     return (
-        <div>
+        <div className="col-lg-6">
             {/* Post */}
             <div className="card mb-3">
+                <img className="card-img-top" src="https://picsum.photos/480/360" alt="Card" />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="text-muted">{moment(props.post.time).fromNow()}</small>
-                        <div className="btn-group">
+                        <div className="btn-group" role="group">
                             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>Edit</button>
                             <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.post._id}>Delete</button>
                         </div>
@@ -53,6 +54,9 @@ const Post = (props) => {
                             <div className="modal-body">
                                 <div className="form-group">
                                     <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={(e) => setPostData({ ...postData, desc: e.target.value })} />
+                                </div>
+                                <div className="form-group">
+                                    <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
                                 </div>
                             </div>
                             <div className="modal-footer">

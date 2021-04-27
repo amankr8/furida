@@ -7,6 +7,7 @@ const DisplayPosts = () => {
     return (
         <div className="container border rounded pt-5 bg-light">
             <h4 className="text-center mb-3">YOUR POSTS</h4>
+            <hr/>
             {
                 !posts.length ? (
                     <div className="text-center my-4">
@@ -15,7 +16,9 @@ const DisplayPosts = () => {
                         </div>
                     </div>
                 ) : (
-                    posts.map((currentpost) => <Post key={currentpost._id} post={currentpost} />)
+                    <div className="row">
+                        { posts.map((currentpost) => <Post key={currentpost._id} post={currentpost} />) }
+                    </div>
                 )
             }
         </div>
