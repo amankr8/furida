@@ -1,6 +1,7 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { deleteMessage } from '../../../store/actions/messages';
+import moment from 'moment';
 
 const Message = (props) => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Message = (props) => {
             <div>
                 <p className="pt-2">{props.msg.subject}</p>
                 <div className="d-flex justify-content-between align-items-center">
-                    <small className="text-muted">18 Apr, 2021</small>
+                    <small className="text-muted">{moment(props.msg.time).fromNow()}</small>
                     <div className="btn-group">
                         <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#view" + props.msg._id}>View</button>
                         <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.msg._id}>Delete</button>

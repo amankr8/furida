@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 const Post = (props) => {
     return (
@@ -7,7 +8,10 @@ const Post = (props) => {
                 <img className="card-img-top" src="https://picsum.photos/480/360" alt="Card" />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
-                    <a href="/" className="btn btn-danger">Learn more</a>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <small className="text-muted">{moment(props.post.time).fromNow()}</small>
+                        <a href="/" className="btn btn-danger">Learn more</a>
+                    </div>
                 </div>
             </div>
         </div>

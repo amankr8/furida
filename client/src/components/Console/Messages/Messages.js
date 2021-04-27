@@ -8,7 +8,7 @@ const Messages = () => {
     return (
         <div>
             <ArrowLeft />
-            <div className="container border rounded mt-4 pt-5 pb-3 bg-light">
+            <div className="container border rounded my-4 pt-5 pb-3 bg-light">
                 <h4 className="text-center mb-3">INBOX</h4>
                 {
                     !messages.length ? (

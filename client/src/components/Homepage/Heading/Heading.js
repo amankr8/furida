@@ -29,7 +29,6 @@ const Heading = () => {
         e.preventDefault();
 
         dispatch(sendMessage(postData));
-        resetForm();
         closeModal();
     }
 

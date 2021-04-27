@@ -1,10 +1,26 @@
 const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    subject: String,
-    message: String
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    subject: {
+        type: String,
+        required: true
+    },
+    message: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Message = mongoose.model('Message', messageSchema);

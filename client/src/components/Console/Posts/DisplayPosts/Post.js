@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updatePost, deletePost } from '../../../../store/actions/posts';
+import moment from 'moment';
 
 const Post = (props) => {
     const [postData, setPostData] = useState(props.post);
@@ -29,7 +30,7 @@ const Post = (props) => {
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
-                        <small className="text-muted">18 Apr, 2021</small>
+                        <small className="text-muted">{moment(props.post.time).fromNow()}</small>
                         <div className="btn-group">
                             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>Edit</button>
                             <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.post._id}>Delete</button>

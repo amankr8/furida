@@ -2,7 +2,7 @@ var Post = require('../models/post')
 
 exports.getPosts = async (req, res) => {
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().sort({ time: -1 });
         res.json(posts);
     } catch (error) {
         console.error(error);
