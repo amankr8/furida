@@ -6,7 +6,7 @@ const Post = (props) => {
             <div className="card mb-4 border-0 shadow-sm">
                 <img className="card-img-top" src="https://picsum.photos/480/360" alt="Card" />
                 <div className="card-body">
-                    <p className="card-text">{props.post.description}</p>
+                    <p className="card-text">{props.post.desc}</p>
                     <a href="/" className="btn btn-danger">Learn more</a>
                 </div>
             </div>

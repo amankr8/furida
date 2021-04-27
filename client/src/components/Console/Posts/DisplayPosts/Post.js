@@ -27,7 +27,7 @@ const Post = (props) => {
             {/* Post */}
             <div className="card mb-4">
                 <div className="card-body">
-                    <p className="card-text">{props.post.description}</p>
+                    <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="text-muted">18 Apr, 2021</small>
                         <div className="btn-group">
@@ -51,7 +51,7 @@ const Post = (props) => {
                             </div>
                             <div className="modal-body">
                                 <div className="form-group">
-                                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.description} onChange={(e) => setPostData({ ...postData, description: e.target.value })} />
+                                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={(e) => setPostData({ ...postData, desc: e.target.value })} />
                                 </div>
                             </div>
                             <div className="modal-footer">

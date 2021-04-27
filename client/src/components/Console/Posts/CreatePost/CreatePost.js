@@ -4,7 +4,7 @@ import { createPost } from '../../../../store/actions/posts';
 
 const CreatePost = () => {
     const [postData, setPostData] = useState({
-        description: ''
+        desc: ''
     })
 
     const dispatch = useDispatch();
@@ -13,12 +13,12 @@ const CreatePost = () => {
         e.preventDefault();
         
         dispatch(createPost(postData));
-        clearForm();
+        resetForm();
     }
 
-    const clearForm = () => {
+    const resetForm = () => {
         setPostData({
-            description: '' 
+            desc: '' 
         })
     }
 
@@ -27,7 +27,7 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">
-                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.description} onChange={ (e) => setPostData({ ...postData, description: e.target.value }) } />
+                    <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />
                 </div>
                 <button type="submit" className="btn btn-danger">Publish</button>
             </form>

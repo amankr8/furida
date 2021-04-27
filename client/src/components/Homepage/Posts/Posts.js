@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Post from './Post'
 
-function Updates() {
+function Posts() {
     const posts = useSelector((state) => state.posts)
     return (
         <div className="border rounded pt-5">
@@ -12,8 +12,8 @@ function Updates() {
                 {
                     !posts.length ? (
                         <div className="text-center my-4">
-                            <div class="spinner-border text-muted" role="status">
-                                <span class="sr-only">Loading...</span>
+                            <div className="spinner-border text-muted" role="status">
+                                <span className="sr-only">Loading...</span>
                             </div>
                         </div>
                     ) : (
@@ -27,4 +27,4 @@ function Updates() {
     )
 }
 
-export default Updates
+export default Posts

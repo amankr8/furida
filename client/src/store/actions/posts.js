@@ -1,10 +1,10 @@
 import * as api from '../../api/posts';
-import { GETPOSTS, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+import { GETALL, CREATE, UPDATE, DELETE } from '../constants/posts';
 
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.getPosts();
-        dispatch({ type: GETPOSTS, payload: data });
+        dispatch({ type: GETALL, payload: data });
     }
     catch (error) {
         console.error(error);

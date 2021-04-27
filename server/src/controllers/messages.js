@@ -30,7 +30,7 @@ exports.deleteMessage = async (req, res) => {
 
 exports.deleteMessages = async (req, res) => {
     try {
-        await Message.deleteMany(req.params.id);
+        await Message.deleteMany();
         res.json('All the messages were deleted successfully!');
     } catch (error) {
         console.error(error);
