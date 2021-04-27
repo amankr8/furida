@@ -1,4 +1,4 @@
-export const GETALL = 'GETALL';
-export const CREATE = 'CREATE';
-export const UPDATE = 'UPDATE';
-export const DELETE = 'DELETE';
+export const GETPOSTS = 'GETPOSTS';
+export const CREATEPOST = 'CREATEPOST';
+export const UPDATEPOST = 'UPDATEPOST';
+export const DELETEPOST = 'DELETEPOST';

@@ -1,15 +1,13 @@
-import { GETALL, SEND, DELETE, DELETEALL } from '../constants/messages';
+import { GETMSGS, SENDMSG, DELETEMSG } from '../constants/messages';
 
 const reducer = (messages = [], action) => {
     switch (action.type) {
-        case GETALL:
+        case GETMSGS:
             return action.payload;
-        case SEND:
+        case SENDMSG:
             return [...messages, action.payload];
-        case DELETE:
-            return messages.filter((post) => post._id !== action.payload);
-        case DELETEALL:
-            return null;
+        case DELETEMSG:
+            return messages.filter((msg) => msg._id !== action.payload);
         default:
             return messages;
     }

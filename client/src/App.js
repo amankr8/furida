@@ -4,6 +4,7 @@ import './App.css';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { getPosts } from './store/actions/posts'
+import { getMessages } from './store/actions/messages'
 
 import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
@@ -13,6 +14,7 @@ function App() {
   
   useEffect(() => {
     dispatch(getPosts());
+    dispatch(getMessages());
   }, [dispatch]);
 
   return (

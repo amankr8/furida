@@ -1,4 +1,3 @@
-export const GETALL = 'GETALL';
-export const SEND = 'SEND';
-export const DELETE = 'DELETE';
-export const DELETEALL = 'DELETEALL';
+export const GETMSGS = 'GETMSGS';
+export const SENDMSG = 'SENDMSG';
+export const DELETEMSG = 'DELETEMSG';

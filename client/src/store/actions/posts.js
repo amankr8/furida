@@ -1,10 +1,10 @@
 import * as api from '../../api/posts';
-import { GETALL, CREATE, UPDATE, DELETE } from '../constants/posts';
+import { GETPOSTS, CREATEPOST, UPDATEPOST, DELETEPOST } from '../constants/posts';
 
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.getPosts();
-        dispatch({ type: GETALL, payload: data });
+        dispatch({ type: GETPOSTS, payload: data });
     }
     catch (error) {
         console.error(error);
@@ -14,7 +14,7 @@ export const getPosts = () => async (dispatch) => {
 export const createPost = (formData) => async (dispatch) => {
     try {
         const { data } = await api.createPost(formData);
-        dispatch({ type: CREATE, payload: data });
+        dispatch({ type: CREATEPOST, payload: data });
     } catch (error) {
         console.error(error);
     }
@@ -23,7 +23,7 @@ export const createPost = (formData) => async (dispatch) => {
 export const updatePost = (id, formData) => async (dispatch) => {
     try {
         const { data } = await api.updatePost(id, formData);
-        dispatch({ type: UPDATE, payload: data });
+        dispatch({ type: UPDATEPOST, payload: data });
     } catch (error) {
         console.error(error);
     }
@@ -32,7 +32,7 @@ export const updatePost = (id, formData) => async (dispatch) => {
 export const deletePost = (id) => async (dispatch) => {
     try {
         await api.deletePost(id);
-        dispatch({ type: DELETE, payload: id });
+        dispatch({ type: DELETEPOST, payload: id });
     } catch (error) {
         console.error(error);
     }

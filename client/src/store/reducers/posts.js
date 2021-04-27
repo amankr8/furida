@@ -1,14 +1,14 @@
-import { GETALL, CREATE, UPDATE, DELETE } from '../constants/posts';
+import { GETPOSTS, CREATEPOST, UPDATEPOST, DELETEPOST } from '../constants/posts';
 
 const reducer = (posts = [], action) => {
     switch (action.type) {
-        case GETALL:
+        case GETPOSTS:
             return action.payload;
-        case CREATE:
+        case CREATEPOST:
             return [...posts, action.payload];
-        case UPDATE:
+        case UPDATEPOST:
             return posts.map((post) => post._id === action.payload._id ? action.payload : post);
-        case DELETE:
+        case DELETEPOST:
             return posts.filter((post) => post._id !== action.payload);
         default:
             return posts;
