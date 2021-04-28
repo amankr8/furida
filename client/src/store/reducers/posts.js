@@ -5,7 +5,7 @@ const reducer = (posts = [], action) => {
         case GETPOSTS:
             return action.payload;
         case CREATEPOST:
-            return [...posts, action.payload];
+            return [action.payload, ...posts];
         case UPDATEPOST:
             return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         case DELETEPOST:

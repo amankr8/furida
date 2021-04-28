@@ -5,7 +5,7 @@ const reducer = (messages = [], action) => {
         case GETMSGS:
             return action.payload;
         case SENDMSG:
-            return [...messages, action.payload];
+            return [action.payload, ...messages];
         case DELETEMSG:
             return messages.filter((msg) => msg._id !== action.payload);
         default:

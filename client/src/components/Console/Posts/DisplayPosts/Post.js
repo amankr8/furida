@@ -12,15 +12,15 @@ const Post = (props) => {
         setPostData(props.post);
     }
 
+    const closeModal = () => {
+        window.$('#edit' + props.post._id).modal('hide');
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         dispatch(updatePost(props.post._id, postData));
         closeModal();
-    }
-
-    const closeModal = () => {
-        window.$('#edit' + props.post._id).modal('hide');
     }
 
     return (
