@@ -9,8 +9,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
-        type: String
+    img: {
+        data: Buffer,
+        contentType: String
     },
     time: {
         type: Date,

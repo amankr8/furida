@@ -5,7 +5,7 @@ import { createPost } from '../../../../store/actions/posts';
 const CreatePost = () => {
     const [postData, setPostData] = useState({
         desc: '',
-        link: 'https://example.com'
+        link: ''
     })
 
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const CreatePost = () => {
     const resetForm = () => {
         setPostData({
             desc: '',
-            link: 'https://example.com' 
+            link: ''
         })
     }
 
@@ -28,6 +28,12 @@ const CreatePost = () => {
         <div className="container border rounded pt-5 pb-3 bg-light">
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
+                <div className="form-group">
+                    <div className="custom-file">
+                        <input type="file" className="custom-file-input" id="customFile" value={postData.img} onChange={ (e) => setPostData({ ...postData, img: e.target.value }) } />
+                        <label className="custom-file-label" htmlFor="customFile">Choose file</label>
+                    </div>
+                </div>
                 <div className="form-group">
                     <textarea required rows="5" type="text" className="form-control" placeholder="Write something..." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />
                 </div>
