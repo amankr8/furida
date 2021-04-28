@@ -34,8 +34,8 @@ const Message = (props) => {
                             {props.msg.message}
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                            <a href={"mailto:" + props.msg.email} className="btn btn-danger">Respond</a>
+                            <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Close</button>
+                            <a href={"mailto:" + props.msg.email} className="btn btn-danger rounded-pill">Respond</a>
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@ const Message = (props) => {
                             Are you sure you want to delete this message?
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deleteMessage(props.msg._id))}>Delete</button>
+                            <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">No</button>
+                            <button type="button" className="btn btn-danger rounded-pill" data-dismiss="modal" onClick={() => dispatch(deleteMessage(props.msg._id))}>Yes, Delete</button>
                         </div>
                     </div>
                 </div>

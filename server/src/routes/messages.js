@@ -3,8 +3,8 @@ const { getMessages, sendMessage, deleteMessage, deleteMessages } = require('../
 const router = express.Router()
 
 router.get('/', getMessages)
-router.post('/send', sendMessage)
-router.delete('/delete/:id', deleteMessage)
-router.delete('/delete', deleteMessages)
+router.post('/', sendMessage)
+router.delete('/:id', deleteMessage)
+router.delete('/', deleteMessages)
 
 module.exports = router

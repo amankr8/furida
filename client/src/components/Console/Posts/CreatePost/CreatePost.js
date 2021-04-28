@@ -34,7 +34,7 @@ const CreatePost = () => {
                 <div className="form-group">
                     <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
                 </div>
-                <button type="submit" className="btn btn-danger">Publish</button>
+                <button type="submit" className="btn btn-danger rounded-pill">Publish</button>
             </form>
         </div>
     )

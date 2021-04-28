@@ -55,13 +55,11 @@ const Post = (props) => {
                                 <div className="form-group">
                                     <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={(e) => setPostData({ ...postData, desc: e.target.value })} />
                                 </div>
-                                <div className="form-group">
-                                    <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
-                                </div>
+                                <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Go back</button>
-                                <button type="submit" className="btn btn-danger">Save changes</button>
+                                <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Go back</button>
+                                <button type="submit" className="btn btn-danger rounded-pill">Save changes</button>
                             </div>
                         </form>
                     </div>
@@ -82,8 +80,8 @@ const Post = (props) => {
                         Are you sure you want to delete this post?
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">No</button>
-                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Yes, Delete</button>
+                        <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">No</button>
+                        <button type="button" className="btn btn-danger rounded-pill" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Yes, Delete</button>
                     </div>
                     </div>
                 </div>

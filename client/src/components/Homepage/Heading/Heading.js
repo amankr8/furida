@@ -40,7 +40,7 @@ const Heading = () => {
                     <p className="lead">Non-Governmental Organisation (NGO) in Jamshedpur</p>
                     <hr className="my-4" />
                     <h4>
-                    <button type="button" className="btn btn-danger btn-lg" onClick={() => resetForm()} data-toggle="modal" data-target="#contactModal">CONTACT US</button>
+                    <button type="button" className="btn btn-danger btn-lg rounded-pill" onClick={() => resetForm()} data-toggle="modal" data-target="#contactModal">CONTACT US</button>
                     </h4>
                 </div>
             </div>
@@ -66,13 +66,11 @@ const Heading = () => {
                                 <div className="form-group">
                                     <input type="text" className="form-control" placeholder="Subject" value={postData.subject} onChange={ (e) => setPostData({ ...postData, subject: e.target.value }) } />
                                 </div>
-                                <div className="form-group">
-                                    <textarea rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
-                                </div>
+                                <textarea rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" className="btn btn-danger">Send Message</button>
+                                <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Close</button>
+                                <button type="submit" className="btn btn-danger rounded-pill">Send Message</button>
                             </div>
                         </form>
                     </div>

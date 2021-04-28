@@ -3,8 +3,8 @@ const { getPosts, createPost, updatePost, deletePost, deletePosts } = require('.
 const router = express.Router()
 
 router.get('/', getPosts)
-router.post('/create', createPost)
-router.patch('/update/:id', updatePost)
-router.delete('/delete/:id', deletePost)
+router.post('/', createPost)
+router.patch('/:id', updatePost)
+router.delete('/:id', deletePost)
 
 module.exports = router
