@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../modules/Navbar'
 import Heading from './Heading/Heading'
 import Posts from './Posts/Posts'
 import About from './About/About'
 import Contact from './Contact/Contact'
-import Footer from '../Footer/Footer'
+import Footer from '../modules/Footer'
 
 const Cover = () => {
     return (

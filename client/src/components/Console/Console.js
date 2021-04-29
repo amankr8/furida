@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../modules/Navbar'
 import Info from './Info/Info'
 import Posts from './Posts/Posts'
 import Messages from './Messages/Messages'

@@ -26,7 +26,7 @@ const Post = (props) => {
     return (
         <div className="col-lg-6">
             {/* Post */}
-            <div className="card mb-3">
+            <div className="card border-0 shadow-sm mb-3">
                 <img className="card-img-top" src="https://picsum.photos/480/360" alt="Card" />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
