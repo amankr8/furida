@@ -4,7 +4,7 @@ const router = express.Router()
 const upload = require('../helpers')
 
 router.get('/', getPosts)
-router.post('/', upload, createPost)
+router.post('/', upload.single('img'), createPost)
 router.patch('/:id', updatePost)
 router.delete('/:id', deletePost)
 router.delete('/', deletePosts)
