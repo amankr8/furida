@@ -55,7 +55,7 @@ const Post = (props) => {
                                 <div className="form-group">
                                     <textarea required rows="5" type="text" className="form-control" placeholder="Write something .." value={postData.desc} onChange={(e) => setPostData({ ...postData, desc: e.target.value })} />
                                 </div>
-                                <input required type="url" className="form-control" placeholder="https://example.com" value={postData.link} onChange={ (e) => setPostData({ ...postData, link: e.target.value }) } />
+                                <input required type="url" className="form-control" placeholder="https://example.com" value={postData.url} onChange={ (e) => setPostData({ ...postData, url: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Go back</button>

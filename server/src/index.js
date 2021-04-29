@@ -16,7 +16,7 @@ app.use('/posts', require('./routes/posts'))
 app.use('/messages', require('./routes/messages'))
 
 app.get('/', (req, res) => {
-  res.render('index.html')
+  res.render('index')
 })
 
 app.listen(port, () => {

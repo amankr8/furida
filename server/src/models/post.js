@@ -5,17 +5,17 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    link: {
+    url: {
         type: String,
         required: true
     },
     img: {
-        data: Buffer,
-        contentType: String
+        type: String,
+        required: true
     },
     time: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     }
 });
 

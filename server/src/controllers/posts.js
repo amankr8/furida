@@ -10,7 +10,11 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.createPost = async (req, res) => {
-    const newPost = new Post(req.body);
+    const newPost = new Post({
+        desc: req.body.desc,
+        url: req.body.url,
+        img: req.file.filename
+    });
     try {
         await newPost.save();
         res.json(newPost);
@@ -21,7 +25,14 @@ exports.createPost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
     try {
-        const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const updatedPost = await Post.findByIdAndUpdate(
+            req.params.id, 
+            {
+                desc: req.body.desc,
+                url: req.body.url,
+                img: req.file.filename
+            }, {new: true}
+        );
         res.json(updatedPost);
     } catch (error) {
         console.error(error);
@@ -32,6 +43,15 @@ exports.deletePost = async (req, res) => {
     try {
         await Post.findByIdAndDelete(req.params.id);
         res.json('Post deleted successfully!');
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+exports.deletePosts = async (req, res) => {
+    try {
+        await Post.deleteMany();
+        res.json('All posts deleted successfully!');
     } catch (error) {
         console.error(error);
     }

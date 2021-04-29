@@ -10,7 +10,7 @@ const Post = (props) => {
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="text-muted">{moment(props.post.time).fromNow()}</small>
-                        <a href={props.post.link} className="btn btn-danger" target="_blank" rel="noopener noreferrer">Learn more</a>
+                        <a href={props.post.url} className="btn btn-danger" target="_blank" rel="noopener noreferrer">Learn more</a>
                     </div>
                 </div>
             </div>
