@@ -4,14 +4,20 @@ import { createPost } from '../../../../store/actions/posts';
 
 const CreatePost = () => {
     const [postData, setPostData] = useState({
-        desc: 'test',
-        url: 'https://test.com',
+        desc: '',
+        url: '',
     })
-    const [file, setFile] = useState({
-        img: ''
-    })
+    const [file, setFile] = useState();
 
     const dispatch = useDispatch();
+
+    const resetForm = () => {
+        setPostData({
+            desc: '',
+            url: ''
+        })
+        setFile();
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,20 +25,11 @@ const CreatePost = () => {
         const formData = new FormData();
         formData.append("desc", postData.desc);
         formData.append("url", postData.url);
-        formData.append("img", file.img);
+        formData.append("img", file);
         dispatch(createPost(formData));
+        
+        e.target.reset();
         resetForm();
-    }
-
-    const resetForm = () => {
-        setPostData({
-            desc: '',
-            url: '',
-        })
-        setFile({
-            img: ''
-        })
-        console.log(file.img);
     }
 
     return (
@@ -40,7 +37,7 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">
-                    <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" id="file" filename={file.img} onChange={ (e) => setFile({ img: e.target.files[0] }) } />
+                    <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" id="file" filename={file} onChange={ (e) => setFile(e.target.files[0]) } />
                 </div>
                 <div className="form-group">
                     <textarea required rows="5" type="text" className="form-control" placeholder="Write something..." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />
