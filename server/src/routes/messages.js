@@ -1,5 +1,5 @@
-const express = require('express');
-const { getMessages, sendMessage, deleteMessage, deleteMessages } = require('../controllers/messages');
+const express = require('express')
+const { getMessages, sendMessage, deleteMessage, deleteMessages } = require('../controllers/messages')
 const router = express.Router()
 
 router.get('/', getMessages)

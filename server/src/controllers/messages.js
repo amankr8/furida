@@ -2,37 +2,37 @@ var Message = require('../models/message')
 
 exports.getMessages = async (req, res) => {
     try {
-        const msgs = await Message.find().sort({ time: -1 });
-        res.json(msgs);
+        const msgs = await Message.find().sort({ time: -1 })
+        res.json(msgs)
     } catch (error) {
-        console.error(error);
+        console.error(error)
     }
 }
 
 exports.sendMessage = async (req, res) => {
-    const newMessage = new Message(req.body);
+    const newMessage = new Message(req.body)
     try {
-        await newMessage.save();
-        res.json(newMessage);
+        await newMessage.save()
+        res.json(newMessage)
     } catch (error) {
-        console.error(error);
+        console.error(error)
     }
 }
 
 exports.deleteMessage = async (req, res) => {
     try {
-        await Message.findByIdAndDelete(req.params.id);
-        res.json('Message deleted successfully!');
+        await Message.findByIdAndDelete(req.params.id)
+        res.json('Message deleted successfully!')
     } catch (error) {
-        console.error(error);
+        console.error(error)
     }
 }
 
 exports.deleteMessages = async (req, res) => {
     try {
-        await Message.deleteMany();
-        res.json('All the messages were deleted successfully!');
+        await Message.deleteMany()
+        res.json('All the messages were deleted successfully!')
     } catch (error) {
-        console.error(error);
+        console.error(error)
     }
 }
