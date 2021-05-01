@@ -1,14 +1,26 @@
 var multer  = require('multer')
 const path = require('path')
+var aws = require('aws-sdk')
+var multerS3 = require('multer-s3')
 
-var storage = multer.diskStorage({
-    destination: 'public/uploads',
-    filename: function (req, file, cb) {
+s3 = new aws.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: process.env.AWS_REGION
+})
+
+var storage = multerS3({
+    s3,
+    bucket: process.env.AWS_BUCKET,
+    metadata: function (req, file, cb) {
+        cb(null, Object.assign({}, req.body));
+    },
+    key: function (req, file, cb) {
         cb(null, file.fieldname + Date.now() + path.extname(file.originalname))
     }
 })
 
-var fileFilter = (req, file, cb) => {
+function fileFilter (req, file, cb) {
     if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
         cb(null, true)
     } else {
@@ -18,9 +30,9 @@ var fileFilter = (req, file, cb) => {
 }
 
 var upload = multer({
-    storage: storage,
-    fileFilter: fileFilter,
+    storage,
+    fileFilter,
     limits: {fileSize: 2 * 1024 * 1024}
-}).single('img')
+})
 
 module.exports = upload

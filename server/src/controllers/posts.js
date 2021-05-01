@@ -13,7 +13,7 @@ exports.createPost = async (req, res) => {
     const newPost = new Post({
         desc: req.body.desc,
         url: req.body.url,
-        img: req.file.filename
+        img: req.file.key
     })
     try {
         await newPost.save()
@@ -26,8 +26,7 @@ exports.createPost = async (req, res) => {
 exports.updatePost = async (req, res) => {
     const updatedPost = {
         desc: req.body.desc,
-        url: req.body.url,
-        img: req.file.filename
+        url: req.body.url
     }
     try {
         await Post.findByIdAndUpdate(req.params.id, updatedPost, {new: true})

@@ -58,8 +58,7 @@ const Post = (props) => {
                                 <input required type="url" className="form-control" placeholder="https://example.com" value={postData.url} onChange={ (e) => setPostData({ ...postData, url: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Go back</button>
-                                <button type="submit" className="btn btn-danger rounded-pill">Save changes</button>
+                                <button type="submit" className="btn btn-danger w-100">Save changes</button>
                             </div>
                         </form>
                     </div>
@@ -80,8 +79,8 @@ const Post = (props) => {
                         Are you sure you want to delete this post?
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">No</button>
-                        <button type="button" className="btn btn-danger rounded-pill" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Yes, Delete</button>
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Yes, Delete</button>
                     </div>
                     </div>
                 </div>

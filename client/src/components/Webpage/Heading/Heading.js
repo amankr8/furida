@@ -69,8 +69,7 @@ const Heading = () => {
                                 <textarea rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Close</button>
-                                <button type="submit" className="btn btn-danger rounded-pill">Send Message</button>
+                                <button type="submit" className="btn btn-danger w-100">Send Message</button>
                             </div>
                         </form>
                     </div>
