@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { sendMessage } from '../../../store/actions/messages';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { sendMessage } from '../../../store/actions/messages'
 
 const Heading = () => {
     const [postData, setPostData] = useState({

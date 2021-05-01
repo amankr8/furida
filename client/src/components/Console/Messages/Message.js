@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteMessage } from '../../../store/actions/messages';
-import moment from 'moment';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteMessage } from '../../../store/actions/messages'
+import moment from 'moment'
 
 const Message = (props) => {
     const dispatch = useDispatch();

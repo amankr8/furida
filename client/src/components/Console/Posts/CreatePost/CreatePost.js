@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { createPost } from '../../../../store/actions/posts';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createPost } from '../../../../store/actions/posts'
 
 const CreatePost = () => {
     const [postData, setPostData] = useState({
@@ -51,4 +51,4 @@ const CreatePost = () => {
     )
 }
 
-export default CreatePost;
+export default CreatePost
