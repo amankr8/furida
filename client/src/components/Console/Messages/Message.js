@@ -4,7 +4,7 @@ import { deleteMessage } from '../../../store/actions/messages'
 import moment from 'moment'
 
 const Message = (props) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     return (
         <li className="list-group-item">

@@ -10,7 +10,7 @@ const Heading = () => {
         message: ''
     })
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const resetForm = () => {
         setPostData({
@@ -22,14 +22,14 @@ const Heading = () => {
     }
 
     const closeModal = () => {
-        window.$('#contactModal').modal('hide');
+        window.$('#contactModal').modal('hide')
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        dispatch(sendMessage(postData));
-        closeModal();
+        dispatch(sendMessage(postData))
+        closeModal()
     }
 
     return (

@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updatePost, deletePost } from '../../../../store/actions/posts';
-import moment from 'moment';
+import { updatePost, deletePost } from '../../../../store/actions/posts'
+import moment from 'moment'
 
 const Post = (props) => {
-    const [postData, setPostData] = useState(props.post);
+    const [postData, setPostData] = useState(props.post)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const resetForm = () => {
-        setPostData(props.post);
+        setPostData(props.post)
     }
 
     const closeModal = () => {
-        window.$('#edit' + props.post._id).modal('hide');
+        window.$('#edit' + props.post._id).modal('hide')
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        dispatch(updatePost(props.post._id, postData));
-        closeModal();
+        dispatch(updatePost(props.post._id, postData))
+        closeModal()
     }
 
     return (

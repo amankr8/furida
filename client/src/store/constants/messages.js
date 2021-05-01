@@ -1,3 +1,3 @@
-export const GETMSGS = 'GETMSGS';
-export const SENDMSG = 'SENDMSG';
-export const DELETEMSG = 'DELETEMSG';
+export const GETMSGS = 'GETMSGS'
+export const SENDMSG = 'SENDMSG'
+export const DELETEMSG = 'DELETEMSG'

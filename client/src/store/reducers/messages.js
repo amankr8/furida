@@ -1,16 +1,16 @@
-import { GETMSGS, SENDMSG, DELETEMSG } from '../constants/messages';
+import { GETMSGS, SENDMSG, DELETEMSG } from '../constants/messages'
 
 const reducer = (messages = [], action) => {
     switch (action.type) {
         case GETMSGS:
-            return action.payload;
+            return action.payload
         case SENDMSG:
-            return [action.payload, ...messages];
+            return [action.payload, ...messages]
         case DELETEMSG:
-            return messages.filter((msg) => msg._id !== action.payload);
+            return messages.filter((msg) => msg._id !== action.payload)
         default:
-            return messages;
+            return messages
     }
 }
 
-export default reducer;
+export default reducer

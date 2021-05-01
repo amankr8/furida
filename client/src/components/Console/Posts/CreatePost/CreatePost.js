@@ -8,29 +8,29 @@ const CreatePost = () => {
         desc: '',
         url: '',
     })
-    const [file, setFile] = useState();
+    const [file, setFile] = useState()
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const resetForm = () => {
         setPostData({
             desc: '',
             url: ''
         })
-        setFile();
+        setFile()
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const formData = new FormData();
-        formData.append("desc", postData.desc);
-        formData.append("url", postData.url);
-        formData.append("img", file);
-        dispatch(createPost(formData));
+        const formData = new FormData()
+        formData.append("desc", postData.desc)
+        formData.append("url", postData.url)
+        formData.append("img", file)
+        dispatch(createPost(formData))
         
-        e.target.reset();
-        resetForm();
+        e.target.reset()
+        resetForm()
     }
 
     return (
