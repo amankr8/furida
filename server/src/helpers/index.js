@@ -1,9 +1,9 @@
 var multer  = require('multer')
 const path = require('path')
-var aws = require('aws-sdk')
+var AWS = require('aws-sdk')
 var multerS3 = require('multer-s3')
 
-s3 = new aws.S3({
+s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
     region: process.env.AWS_REGION
@@ -11,9 +11,9 @@ s3 = new aws.S3({
 
 var storage = multerS3({
     s3,
-    bucket: process.env.AWS_BUCKET,
+    bucket: `${process.env.AWS_BUCKET}/posts`,
     metadata: function (req, file, cb) {
-        cb(null, Object.assign({}, req.body));
+        cb(null, {fieldName: file.fieldname});
     },
     key: function (req, file, cb) {
         cb(null, file.fieldname + Date.now() + path.extname(file.originalname))
@@ -32,7 +32,7 @@ function fileFilter (req, file, cb) {
 var upload = multer({
     storage,
     fileFilter,
-    limits: {fileSize: 2 * 1024 * 1024}
+    limits: {fileSize: 5 * 1024 * 1024}
 })
 
 module.exports = upload

@@ -13,7 +13,7 @@ exports.createPost = async (req, res) => {
     const newPost = new Post({
         desc: req.body.desc,
         url: req.body.url,
-        img: req.file.key
+        img: req.file.location
     })
     try {
         await newPost.save()
