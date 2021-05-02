@@ -33,8 +33,12 @@ const Post = (props) => {
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="text-muted">{moment(props.post.time).fromNow()}</small>
                         <div className="btn-group" role="group">
-                            <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>Edit</button>
-                            <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.post._id}>Delete</button>
+                            <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>
+                                <i class="fas fa-pen fa-lg"></i>
+                            </button>
+                            <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.post._id}>
+                                <i class="fas fa-trash fa-lg"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +62,7 @@ const Post = (props) => {
                                 <input required type="url" className="form-control" placeholder="https://example.com" value={postData.url} onChange={ (e) => setPostData({ ...postData, url: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
-                                <button type="submit" className="btn btn-danger w-100">Save changes</button>
+                                <button type="submit" className="btn btn-danger btn-block">Save changes</button>
                             </div>
                         </form>
                     </div>
@@ -79,8 +83,8 @@ const Post = (props) => {
                         Are you sure you want to delete this post?
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
-                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Yes, Delete</button>
+                        <button type="button" className="btn btn-light" data-dismiss="modal">Cancel</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deletePost(props.post._id))}>Delete</button>
                     </div>
                     </div>
                 </div>

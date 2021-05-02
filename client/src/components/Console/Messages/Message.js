@@ -15,8 +15,12 @@ const Message = (props) => {
                 <div className="d-flex justify-content-between align-items-center">
                     <small className="text-muted">{moment(props.msg.time).fromNow()}</small>
                     <div className="btn-group">
-                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#view" + props.msg._id}>View</button>
-                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.msg._id}>Delete</button>
+                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#view" + props.msg._id}>
+                        <i class="fas fa-eye fa-lg"></i>
+                        </button>
+                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.msg._id}>
+                            <i class="fas fa-trash fa-lg"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ const Message = (props) => {
                             {props.msg.message}
                         </div>
                         <div className="modal-footer">
-                            <a href={"mailto:" + props.msg.email} className="btn btn-danger w-100">Respond</a>
+                            <a href={"mailto:" + props.msg.email} className="btn btn-danger btn-block">Respond</a>
                         </div>
                     </div>
                 </div>
@@ -55,8 +59,8 @@ const Message = (props) => {
                             Are you sure you want to delete this message?
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
-                            <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deleteMessage(props.msg._id))}>Yes, Delete</button>
+                            <button type="button" className="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => dispatch(deleteMessage(props.msg._id))}>Delete</button>
                         </div>
                     </div>
                 </div>

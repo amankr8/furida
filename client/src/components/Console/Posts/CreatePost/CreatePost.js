@@ -38,7 +38,7 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">
-                <img src={placeholder} className="img-thumbnail" height="200px" style={{ objectFit: "Cover" }} alt="placeholder" />
+                    <img src={placeholder} className="img-thumbnail" height="200px" style={{ objectFit: "Cover" }} alt="placeholder" />
                 </div>
                 <div className="form-group">
                     <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" id="file" filename={file} onChange={ (e) => setFile(e.target.files[0]) } />
