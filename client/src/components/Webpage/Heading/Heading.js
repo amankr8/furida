@@ -58,15 +58,15 @@ const Heading = () => {
                             </div>
                             <div className="modal-body">
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Name" value={postData.name} onChange={ (e) => setPostData({ ...postData, name: e.target.value }) } />
+                                    <input required type="text" className="form-control" placeholder="Name" value={postData.name} onChange={ (e) => setPostData({ ...postData, name: e.target.value }) } />
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" className="form-control" placeholder="Email" value={postData.email} onChange={ (e) => setPostData({ ...postData, email: e.target.value }) } />
+                                    <input required type="email" className="form-control" placeholder="Email" value={postData.email} onChange={ (e) => setPostData({ ...postData, email: e.target.value }) } />
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Subject" value={postData.subject} onChange={ (e) => setPostData({ ...postData, subject: e.target.value }) } />
+                                    <input required type="text" className="form-control" placeholder="Subject" value={postData.subject} onChange={ (e) => setPostData({ ...postData, subject: e.target.value }) } />
                                 </div>
-                                <textarea rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
+                                    <textarea required rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
                                 <button type="submit" className="btn btn-danger btn-block">Send Message</button>

@@ -15,10 +15,10 @@ const Message = (props) => {
                 <div className="d-flex justify-content-between align-items-center">
                     <small className="text-muted">{moment(props.msg.time).fromNow()}</small>
                     <div className="btn-group">
-                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#view" + props.msg._id}>
+                        <button type="button" className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target={"#view" + props.msg._id}>
                         <i class="fas fa-eye fa-lg"></i>
                         </button>
-                        <button type="button" className="btn btn-sm btn-outline-danger" data-toggle="modal" data-target={"#del" + props.msg._id}>
+                        <button type="button" className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target={"#del" + props.msg._id}>
                             <i class="fas fa-trash fa-lg"></i>
                         </button>
                     </div>
