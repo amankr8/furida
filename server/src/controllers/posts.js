@@ -24,12 +24,12 @@ exports.createPost = async (req, res) => {
 }
 
 exports.updatePost = async (req, res) => {
-    const updatedPost = {
+    const update = {
         desc: req.body.desc,
         url: req.body.url
     }
     try {
-        await Post.findByIdAndUpdate(req.params.id, updatedPost, {new: true})
+        const updatedPost = await Post.findByIdAndUpdate(req.params.id, update, {new: true})
         res.json(updatedPost)
     } catch (error) {
         console.error(error)

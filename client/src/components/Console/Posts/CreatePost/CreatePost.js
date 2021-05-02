@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createPost } from '../../../../store/actions/posts'
-import placeholder from '../../../../images/placeholder.jpg'
+import placeholder from '../../../../images/placeholder.png'
 
 const CreatePost = () => {
     const [postData, setPostData] = useState({
@@ -38,7 +38,7 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">
-                    <img src={placeholder} className="img-thumbnail" height="200px" style={{ objectFit: "Cover" }} alt="placeholder" />
+                    <img src={placeholder} className="img-thumbnail" alt="placeholder" />
                 </div>
                 <div className="form-group">
                     <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" id="file" filename={file} onChange={ (e) => setFile(e.target.files[0]) } />

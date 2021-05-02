@@ -12,6 +12,7 @@ s3 = new AWS.S3({
 var storage = multerS3({
     s3,
     bucket: `${process.env.AWS_BUCKET}/posts`,
+    acl: 'public-read',
     metadata: function (req, file, cb) {
         cb(null, {fieldName: file.fieldname});
     },
