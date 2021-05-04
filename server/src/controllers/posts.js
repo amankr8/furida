@@ -1,4 +1,7 @@
+var fs = require('fs')
+var path = require('path')
 var Post = require('../models/post')
+const { deleteFile, deleteFiles } = require('../helpers/files')
 
 exports.getPosts = async (req, res) => {
     try {
@@ -13,7 +16,7 @@ exports.createPost = async (req, res) => {
     const newPost = new Post({
         desc: req.body.desc,
         url: req.body.url,
-        img: req.file.location
+        img: req.file.filename
     })
     try {
         await newPost.save()
@@ -38,6 +41,9 @@ exports.updatePost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
     try {
+        const doc = await Post.findById(req.params.id)
+        deleteFile(doc.img)
+
         await Post.findByIdAndDelete(req.params.id)
         res.json('Post deleted successfully!')
     } catch (error) {
@@ -47,6 +53,8 @@ exports.deletePost = async (req, res) => {
 
 exports.deletePosts = async (req, res) => {
     try {
+        deleteFiles()
+        
         await Post.deleteMany()
         res.json('All posts deleted successfully!')
     } catch (error) {
