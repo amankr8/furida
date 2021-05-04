@@ -36,6 +36,6 @@ var upload = multer({
     limits: {
         fileSize: 2 * 1024 * 1024
     }
-})
+}).single('img')
 
 module.exports = upload
