@@ -1,6 +1,6 @@
 var Post = require('../models/post')
 const { deleteFile, deleteFiles } = require('../helpers/local')
-const { uploadFileToS3, deleteFileFromS3, deleteFilesFromS3 } = require('../helpers/aws')
+// const { uploadFileToS3, deleteFileFromS3, deleteFilesFromS3 } = require('../helpers/aws')
 
 exports.getPosts = async (req, res) => {
     try {
@@ -12,14 +12,14 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.createPost = async (req, res) => {
-    await uploadFileToS3(req.file)
-    
     const newPost = new Post({
         desc: req.body.desc,
         url: req.body.url,
         img: req.file.filename
     })
     try {
+        // await uploadFileToS3(req.file)
+
         await newPost.save()
         res.json(newPost)
     } catch (error) {
@@ -43,8 +43,8 @@ exports.updatePost = async (req, res) => {
 exports.deletePost = async (req, res) => {
     try {
         const doc = await Post.findById(req.params.id)
-        deleteFile(doc.img)
-        deleteFileFromS3(doc.img)
+        await deleteFile(doc.img)
+        // await deleteFileFromS3(doc.img)
 
         await Post.findByIdAndDelete(req.params.id)
         res.json('Post deleted successfully!')
@@ -55,8 +55,8 @@ exports.deletePost = async (req, res) => {
 
 exports.deletePosts = async (req, res) => {
     try {
-        deleteFiles()
-        deleteFilesFromS3()
+        await deleteFiles()
+        // await deleteFilesFromS3()
         
         await Post.deleteMany()
         res.json('All posts deleted successfully!')

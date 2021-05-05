@@ -2,7 +2,7 @@ var fs = require('fs')
 var path = require('path')
 
 exports.deleteFile = (filename) => {
-    fs.unlink(`public/uploads/${filename}`, err => {
+    fs.unlink(path.join('public/uploads', filename), err => {
         if (err) throw err
         else console.log('Associated image deleted!')
     })
