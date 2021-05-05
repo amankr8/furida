@@ -7,18 +7,20 @@ var s3 = new AWS.S3({
 })
 
 exports.uploadFileToS3 = (file) => {
-    const fileBody = fs.readFileSync(file.path);
-
-    const params = {
-        Bucket: process.env.AWS_BUCKET,
-        Key: file.filename,
-        Body: fileBody,
-        ACL: 'public-read'
-    };
-
-    s3.putObject(params, function(err, data) {
+    fs.readFile(file.path, (err, data) => {
         if (err) throw err
-        console.log(data)
+
+        const params = {
+            Bucket: process.env.AWS_BUCKET,
+            Key: file.filename,
+            Body: data,
+            ACL: 'public-read'
+        }
+    
+        s3.putObject(params, function(err, data) {
+            if (err) throw err
+            console.log(data)
+        })
     })
 }
 
@@ -35,19 +37,19 @@ exports.deleteFileFromS3 = (filename) => {
 }
 
 exports.deleteFilesFromS3 = () => {
-    const params = {
-        Bucket: process.env.AWS_BUCKET,
-        Delete: {
-            Objects: [
-                {
-                    Key: '*'
-                }
-            ]
-        }
-    }
-
-    s3.deleteObjects(params, err => {
+    s3.listObjects({ Bucket: process.env.AWS_BUCKET }, (err, data) => {
         if (err) throw err
-        console.log('All associated images at S3 deleted!')
+        
+        const params = {
+            Bucket: process.env.AWS_BUCKET,
+            Delete: {
+                Objects: data.Contents.map(({ Key }) => ({ Key: Key }))
+            }
+        }
+
+        s3.deleteObjects(params, err => {
+            if (err) throw err
+            console.log('All associated images st S3 deleted!')
+        })
     })
 }
