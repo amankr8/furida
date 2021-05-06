@@ -31,7 +31,7 @@ const Post = (props) => {
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
-                        <small className="text-muted">{moment(props.post.time).fromNow()}</small>
+                        <small className="text-muted">{moment(props.post.time).format('ll')}</small>
                         <div className="btn-group" role="group">
                             <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>
                                 <i class="fas fa-pen fa-lg"></i>
