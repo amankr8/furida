@@ -1,7 +1,7 @@
 const express = require('express')
 const { getPosts, createPost, updatePost, deletePost, deletePosts } = require('../controllers/posts')
 const router = express.Router()
-const upload = require('../helpers/storage')
+const upload = require('../helpers')
 
 router.get('/', getPosts)
 router.post('/', upload, createPost)

@@ -43,7 +43,7 @@ exports.deleteFilesFromS3 = () => {
         const params = {
             Bucket: process.env.AWS_BUCKET,
             Delete: {
-                Objects: data.Contents.map(({ Key }) => ({ Key: Key }))
+                Objects: data.Contents.map(({ Key }) => ({ Key }))
             }
         }
 
