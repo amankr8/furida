@@ -8,7 +8,7 @@ import Footer from '../modules/Footer'
 
 const Cover = () => {
     return (
-        <div className="border rounded">
+        <div>
             <img src="https://picsum.photos/1280/720" className="img-fluid rounded" alt="Cover" />
         </div>
     )

@@ -27,7 +27,7 @@ const Post = (props) => {
         <div className="col-lg-6">
             {/* Post */}
             <div className="card mb-3">
-                <img className="card-img-top" src={`https://furida.s3.amazonaws.com/${props.post.img}`} height="250px" style={{objectFit: "Cover"}} alt="Card" />
+                <img className="card-img-top" src={`http://localhost:8080/uploads/${props.post.img}`} height="225px" style={{ objectFit: "cover" }} alt="Card" />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
