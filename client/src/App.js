@@ -6,7 +6,7 @@ import { BrowserRouter as Switch, Route } from "react-router-dom"
 import { getPosts } from './store/actions/posts'
 import { getMessages } from './store/actions/messages'
 
-import Webpage from './components/Webpage/Webpage'
+import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/" component={Webpage} />
+      <Route exact path="/" component={Homepage} />
       <Route path="/console" component={Console} />
     </Switch>
   )

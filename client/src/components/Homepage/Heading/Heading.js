@@ -34,7 +34,7 @@ const Heading = () => {
 
     return (
         <div>
-            <div className="jumbotron">
+            <div className="jumbotron shadow-sm">
                 <div className="container text-center">
                     <h1 className="display-3 text-danger">FURIDA</h1>
                     <p className="lead">Non-Governmental Organisation (NGO) in Jamshedpur</p>

@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    time: {
+    date: {
         type: Date,
         default: new Date()
     }

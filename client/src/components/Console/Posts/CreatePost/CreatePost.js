@@ -34,7 +34,7 @@ const CreatePost = () => {
     }
 
     return (
-        <div className="container border rounded pt-5 pb-3 bg-light">
+        <div className="container border rounded pt-5 pb-3 shadow bg-light">
             <form onSubmit={handleSubmit}>
                 <h4 className="mb-3">CREATE POST:</h4>
                 <div className="form-group">

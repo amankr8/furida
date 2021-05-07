@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updatePost, deletePost } from '../../../../store/actions/posts'
+import CardImg from '../../../modules/CardImg/CardImg'
 import moment from 'moment'
 
 const Post = (props) => {
@@ -26,12 +27,12 @@ const Post = (props) => {
     return (
         <div className="col-lg-6">
             {/* Post */}
-            <div className="card mb-3">
-                <img className="card-img-top" src={`http://localhost:8080/uploads/${props.post.img}`} height="225px" style={{ objectFit: "cover" }} alt="Card" />
+            <div className="card mb-3 border-0 shadow-sm">
+                <CardImg img={props.post.img} />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
                     <div className="d-flex justify-content-between align-items-center">
-                        <small className="text-muted">{moment(props.post.time).format('ll')}</small>
+                        <small className="text-muted">{moment(props.post.date).format('ll')}</small>
                         <div className="btn-group" role="group">
                             <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => resetForm()} data-toggle="modal" data-target={"#edit" + props.post._id}>
                                 <i class="fas fa-pen fa-lg"></i>

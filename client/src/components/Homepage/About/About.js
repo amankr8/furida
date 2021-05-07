@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
     return (
-        <div className="bg-light py-5 border rounded">
+        <div className="bg-light py-5 rounded shadow">
             <h4 className="text-center pt-4">ABOUT THE ORGANISATION</h4>
             <div className="container" style={{maxWidth: "55rem"}}>
                 <hr/>

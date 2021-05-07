@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 function Menu() {
     return (
         <div>
-            <div className="jumbotron">
+            <div className="jumbotron shadow-sm">
                 <div className="text-center">
                     <h1 className="display-4">CONSOLE</h1>
                 </div>
             </div>
             <div className="container">
-                <ul className="list-group">
+                <ul className="list-group shadow-sm">
                     <Link to="/console/info" className="list-group-item btn btn-outline-secondary">
                         <div className="row">
                             <div className="col-1 text-right">

@@ -1,7 +1,7 @@
 import React from 'react'
 import CreatePost from './CreatePost/CreatePost'
 import DisplayPosts from './DisplayPosts/DisplayPosts'
-import ArrowLeft from '../../modules/ArrowLeft'
+import ArrowLeft from '../../modules/ArrowLeft/ArrowLeft'
 
 function Posts() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrowLeft from '../../modules/ArrowLeft'
+import ArrowLeft from '../../modules/ArrowLeft/ArrowLeft'
 
 function Info() {
     return (

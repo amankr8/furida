@@ -5,7 +5,7 @@ import Post from './Post'
 function Posts() {
     const posts = useSelector((state) => state.posts)
     return (
-        <div className="bg-light border rounded pt-5">
+        <div className="bg-light rounded shadow pt-5">
             <h4 className="text-center">UPDATES</h4>
             <div className="container">
                 <hr/>

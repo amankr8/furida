@@ -1,10 +1,10 @@
 import React from 'react'
-import logo from '../../images/furida.png'
+import logo from '../../../images/furida.png'
 
 function Navbar(props) {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
                 <div className="container">
                     <a href="/" className="navbar-brand"><img src={logo} height="35" alt="furida logo" /></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
