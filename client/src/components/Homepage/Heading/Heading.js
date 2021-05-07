@@ -40,7 +40,7 @@ const Heading = () => {
                     <p className="lead">Non-Governmental Organisation (NGO) in Jamshedpur</p>
                     <hr className="my-4" />
                     <h4>
-                    <button type="button" className="btn btn-danger btn-lg" onClick={() => resetForm()} data-toggle="modal" data-target="#contactModal">CONTACT US</button>
+                    <button type="button" className="btn btn-danger btn-lg shadow" onClick={() => resetForm()} data-toggle="modal" data-target="#contactModal">CONTACT US</button>
                     </h4>
                 </div>
             </div>
