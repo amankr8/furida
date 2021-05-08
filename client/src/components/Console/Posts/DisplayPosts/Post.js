@@ -27,7 +27,7 @@ const Post = (props) => {
     return (
         <div className="col-lg-6">
             {/* Post */}
-            <div className="card mb-3 border-0 shadow-sm">
+            <div className="card mb-3">
                 <CardImg img={props.post.img} />
                 <div className="card-body">
                     <p className="card-text">{props.post.desc}</p>
