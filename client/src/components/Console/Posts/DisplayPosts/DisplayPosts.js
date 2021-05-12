@@ -5,12 +5,12 @@ import Post from './Post'
 const DisplayPosts = () => {
     const posts = useSelector((state) => state.posts)
     return (
-        <div className="container border rounded pt-5 shadow bg-light">
-            <h4 className="text-center mb-3">YOUR POSTS</h4>
+        <div className="container bg-light rounded pt-5 shadow">
+            <h4 className="text-center">YOUR POSTS</h4>
             <hr/>
             {
                 !posts.length ? (
-                    <div className="text-center my-4">
+                    <div className="text-center pb-3">
                         <div className="spinner-border text-muted" role="status">
                             <span className="sr-only">Loading...</span>
                         </div>
