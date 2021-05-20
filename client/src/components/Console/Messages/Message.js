@@ -10,7 +10,7 @@ const Message = (props) => {
         <li className="list-group-item">
             {/* Message */}
             <div>
-                <p className="mb-0"><strong>Subject - </strong>{props.msg.subject}</p>
+                <p className="mb-0"><strong>SUBJECT: </strong>{props.msg.subject}</p>
                 <p className="text-muted">- {props.msg.name}<i> ({props.msg.email})</i></p>
                 <div className="d-flex justify-content-between align-items-center">
                     <small className="text-muted">{moment(props.msg.time).fromNow()}</small>

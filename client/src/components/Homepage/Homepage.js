@@ -25,7 +25,7 @@ const Map = () => {
 function Homepage() {
     return (
         <div>
-            <Navbar item1="Console" link1="/console" />
+            <Navbar item1="About" link1="/#about" item2="Updates" link2="/#updates" item3="Contact" link3="/#contact" />
             <Heading />
             <div className="container">
                 <div className="mb-4">

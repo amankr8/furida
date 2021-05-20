@@ -11,7 +11,7 @@ exports.uploadFileToS3 = (file) => {
         if (err) throw err
 
         const params = {
-            Bucket: process.env.AWS_BUCKET,
+            Bucket: 'furida',
             Key: file.filename,
             Body: data,
             ACL: 'public-read'
@@ -26,7 +26,7 @@ exports.uploadFileToS3 = (file) => {
 
 exports.deleteFileFromS3 = (filename) => {
     const params = {
-        Bucket: process.env.AWS_BUCKET,
+        Bucket: 'furida',
         Key: filename
     }
 
@@ -37,11 +37,11 @@ exports.deleteFileFromS3 = (filename) => {
 }
 
 exports.deleteFilesFromS3 = () => {
-    s3.listObjects({ Bucket: process.env.AWS_BUCKET }, (err, data) => {
+    s3.listObjects({ Bucket: 'furida' }, (err, data) => {
         if (err) throw err
         
         const params = {
-            Bucket: process.env.AWS_BUCKET,
+            Bucket: 'furida',
             Delete: {
                 Objects: data.Contents.map(({ Key }) => ({ Key }))
             }

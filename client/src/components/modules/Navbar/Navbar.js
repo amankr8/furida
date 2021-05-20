@@ -15,6 +15,12 @@ function Navbar(props) {
                             <li className="nav-item">
                                 <a href={props.link1} className="nav-link">{props.item1}</a>
                             </li>
+                            <li className="nav-item">
+                                <a href={props.link2} className="nav-link">{props.item2}</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href={props.link3} className="nav-link">{props.item3}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
