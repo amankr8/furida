@@ -2,6 +2,10 @@ import React from 'react'
 import logo from '../../../images/furida.png'
 
 function Navbar(props) {
+    window.$('.navbar-collapse a').click(function() {
+        window.$(".navbar-collapse").collapse('hide')
+    })
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
