@@ -1,8 +1,13 @@
+nav {
+  min-height: 4rem;
+}
+
 body {
   margin: 0;
   padding-top: 4rem;
 }
 
-nav {
-  min-height: 4rem;
+section {
+  padding-top: 4.75rem;
+  margin-top: -4.75rem;
 }

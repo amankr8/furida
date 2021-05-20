@@ -7,9 +7,12 @@ import Contact from './Contact/Contact'
 import Footer from '../modules/Footer/Footer'
 
 const Cover = () => {
+    // const url = 'https://furida.s3.amazonaws.com/'
+    const url = 'http://localhost:8080/uploads/'
+
     return (
         <div>
-            <img src="https://picsum.photos/1280/720" className="img-fluid rounded shadow" alt="Cover" />
+            <img src={url + 'furida_cover.jpeg'} className="img-fluid rounded shadow" alt="Cover" />
         </div>
     )
 }
@@ -28,22 +31,22 @@ function Homepage() {
             <Navbar item1="About" link1="/#about" item2="Updates" link2="/#updates" item3="Contact" link3="/#contact" />
             <Heading />
             <div className="container">
-                <div className="mb-4">
+                <section className="mb-4">
                     <Cover />
-                </div>
-                <div className="mb-4" id="updates">
+                </section>
+                <section className="mb-4" id="updates">
                     <Posts />
-                </div>
-                <div className="mb-4" id="about">
+                </section>
+                <section className="mb-4" id="about">
                     <About />
-                </div>
-                <div className="mb-4" id="location">
+                </section>
+                <section className="mb-4" id="location">
                     <Map />
-                </div>
+                </section>
             </div>
-            <div id="contact">
+            <section id="contact">
                 <Contact />
-            </div>
+            </section>
             <Footer footer_content="&copy; 2020 FURIDA. All Rights Reserved." />
         </div>
     )
