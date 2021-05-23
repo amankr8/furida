@@ -8,6 +8,7 @@ import { getMessages } from './store/actions/messages'
 
 import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
+import Login from './components/Login/Login'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/console" component={Console} />
+      <Route path="/login" component={Login} />
     </Switch>
   )
 }
