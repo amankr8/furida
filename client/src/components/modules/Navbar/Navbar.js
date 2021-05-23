@@ -2,8 +2,8 @@ import React from 'react'
 import logo from '../../../images/furida.png'
 
 function Navbar(props) {
-    window.$('.navbar-collapse a').click(function() {
-        window.$(".navbar-collapse").collapse('hide')
+    window.$(document).click(function() {
+        window.$('.navbar-collapse').collapse('hide');
     })
 
     return (
