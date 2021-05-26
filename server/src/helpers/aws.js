@@ -11,7 +11,7 @@ exports.uploadFileToS3 = (file) => {
         if (err) throw err
 
         const params = {
-            Bucket: 'furida',
+            Bucket: 'furida/posts',
             Key: file.filename,
             Body: data,
             ACL: 'public-read'
@@ -26,7 +26,7 @@ exports.uploadFileToS3 = (file) => {
 
 exports.deleteFileFromS3 = (filename) => {
     const params = {
-        Bucket: 'furida',
+        Bucket: 'furida/posts',
         Key: filename
     }
 
@@ -37,11 +37,11 @@ exports.deleteFileFromS3 = (filename) => {
 }
 
 exports.deleteFilesFromS3 = () => {
-    s3.listObjects({ Bucket: 'furida' }, (err, data) => {
+    s3.listObjects({ Bucket: 'furida/posts' }, (err, data) => {
         if (err) throw err
         
         const params = {
-            Bucket: 'furida',
+            Bucket: 'furida/posts',
             Delete: {
                 Objects: data.Contents.map(({ Key }) => ({ Key }))
             }
@@ -49,7 +49,7 @@ exports.deleteFilesFromS3 = () => {
 
         s3.deleteObjects(params, err => {
             if (err) throw err
-            console.log('All associated images st S3 deleted!')
+            console.log('All associated images at S3 deleted!')
         })
     })
 }

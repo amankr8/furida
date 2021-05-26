@@ -2,7 +2,7 @@ var multer  = require('multer')
 var path = require('path')
 
 var storage = multer.diskStorage({
-    destination: 'public/uploads',
+    destination: 'public/uploads/posts',
     filename: function (req, file, cb) {
         cb(null, 'furida_' + Date.now() + path.extname(file.originalname))
     }

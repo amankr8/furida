@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { login } from '../../store/actions/login'
+
 import Logo from '../../images/logo.png'
 
 const Login = () => {
+    const [loginData, setLoginData] = useState({
+        email: '',
+        password: ''
+    })
+
+    const dispatch = useDispatch()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        dispatch(login(loginData))
+    }
+
     return (
         <div className="container">
             <div className="container bg-light border rounded" style={{maxWidth: "30rem"}}>
@@ -11,18 +27,18 @@ const Login = () => {
                     <p>Login only if authorized!</p>
                 </div>
 
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" />
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <input required type="email" className="form-control" placeholder="Email address" value={loginData.email} onChange={ (e) => setLoginData({ ...loginData, email: e.target.value }) } />
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                    <div className="form-group">
+                        <input required type="password" className="form-control" placeholder="Password" value={loginData.password} onChange={ (e) => setLoginData({ ...loginData, password: e.target.value }) } />
                     </div>
-                    <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    <div className="form-check mb-3">
+                        <input type="checkbox" className="form-check-input" id="checkBox" />
+                        <label className="form-check-label" htmlFor="checkBox">Remember me</label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <button type="submit" className="btn btn-danger btn-block">Login</button>
                 </form>
 
                 <p className="mt-4 mb-4 text-muted text-center">&copy; 2020 FURIDA</p>

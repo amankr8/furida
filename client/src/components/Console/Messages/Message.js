@@ -13,7 +13,7 @@ const Message = (props) => {
                 <p className="mb-0"><strong>SUBJECT: </strong>{props.msg.subject}</p>
                 <p className="text-muted">- {props.msg.name}<i> ({props.msg.email})</i></p>
                 <div className="d-flex justify-content-between align-items-center">
-                    <small className="text-muted">{moment(props.msg.time).fromNow()}</small>
+                    <small className="text-muted">{moment(props.msg.date).fromNow()}</small>
                     <div className="btn-group">
                         <button type="button" className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target={"#view" + props.msg._id}>
                         <i class="fas fa-eye fa-lg"></i>

@@ -7,12 +7,12 @@ import Contact from './Contact/Contact'
 import Footer from '../modules/Footer/Footer'
 
 const Cover = () => {
-    // const url = 'https://furida.s3.amazonaws.com/'
-    const url = 'http://localhost:8080/uploads/'
+    // const url = 'https://furida.s3.amazonaws.com/info/'
+    const url = 'http://localhost:8080/uploads/info/'
 
     return (
         <div>
-            <img src={url + 'furida_cover.jpeg'} className="img-fluid rounded shadow" alt="Cover" />
+            <img src={url + 'furida_cover.png'} className="img-fluid rounded shadow" width="100%" alt="Cover" />
         </div>
     )
 }
@@ -28,7 +28,7 @@ const Map = () => {
 function Homepage() {
     return (
         <div>
-            <Navbar item1="About" link1="/#about" item2="Updates" link2="/#updates" item3="Contact" link3="/#contact" />
+            <Navbar />
             <Heading />
             <div className="container">
                 <section className="mb-4">

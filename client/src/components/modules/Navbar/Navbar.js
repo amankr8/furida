@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../../images/furida.png'
 
-function Navbar(props) {
+function Navbar() {
     window.$(document).click(function() {
         window.$('.navbar-collapse').collapse('hide');
     })
@@ -17,13 +17,13 @@ function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a href={props.link1} className="nav-link">{props.item1}</a>
+                                <a href="/#about" className="nav-link">About</a>
                             </li>
                             <li className="nav-item">
-                                <a href={props.link2} className="nav-link">{props.item2}</a>
+                                <a href="/#updates" className="nav-link">Updates</a>
                             </li>
                             <li className="nav-item">
-                                <a href={props.link3} className="nav-link">{props.item3}</a>
+                                <a href="/#contact" className="nav-link">Contact</a>
                             </li>
                         </ul>
                     </div>

@@ -10,8 +10,8 @@ exports.getMessages = async (req, res) => {
 }
 
 exports.sendMessage = async (req, res) => {
-    const newMessage = new Message(req.body)
     try {
+        const newMessage = new Message(req.body)
         await newMessage.save()
         res.json(newMessage)
     } catch (error) {

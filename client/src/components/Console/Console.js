@@ -10,7 +10,7 @@ import Menu from './Menu/Menu'
 function Console() {
     return (
         <div>
-            <Navbar item1="Webpage" link1="/" />
+            <Navbar />
                 <Switch>
                     <Route exact path="/console" component={Menu} />
                     <div className="container">

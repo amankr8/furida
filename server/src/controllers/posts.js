@@ -4,7 +4,7 @@ const { uploadFileToS3, deleteFileFromS3, deleteFilesFromS3 } = require('../help
 
 exports.getPosts = async (req, res) => {
     try {
-        const posts = await Post.find().sort({ time: -1 })
+        const posts = await Post.find().sort({ date: -1 })
         res.json(posts)
     } catch (error) {
         console.error(error)
@@ -12,14 +12,13 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.createPost = async (req, res) => {
-    const newPost = new Post({
-        desc: req.body.desc,
-        url: req.body.url,
-        img: req.file.filename
-    })
     try {
-        // await uploadFileToS3(req.file)
-
+        const newPost = new Post({
+            desc: req.body.desc,
+            url: req.body.url,
+            img: req.file.filename
+        })
+        await uploadFileToS3(req.file)
         await newPost.save()
         res.json(newPost)
     } catch (error) {
@@ -28,12 +27,8 @@ exports.createPost = async (req, res) => {
 }
 
 exports.updatePost = async (req, res) => {
-    const update = {
-        desc: req.body.desc,
-        url: req.body.url
-    }
     try {
-        const updatedPost = await Post.findByIdAndUpdate(req.params.id, update, {new: true})
+        const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.json(updatedPost)
     } catch (error) {
         console.error(error)
@@ -44,8 +39,7 @@ exports.deletePost = async (req, res) => {
     try {
         const doc = await Post.findById(req.params.id)
         await deleteFile(doc.img)
-        // await deleteFileFromS3(doc.img)
-
+        await deleteFileFromS3(doc.img)
         await Post.findByIdAndDelete(req.params.id)
         res.json('Post deleted successfully!')
     } catch (error) {
@@ -55,9 +49,8 @@ exports.deletePost = async (req, res) => {
 
 exports.deletePosts = async (req, res) => {
     try {
-        await deleteFiles()
-        // await deleteFilesFromS3()
-        
+        deleteFiles()
+        deleteFilesFromS3()
         await Post.deleteMany()
         res.json('All posts deleted successfully!')
     } catch (error) {

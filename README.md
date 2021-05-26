@@ -9,3 +9,6 @@ mern stack furida web application
 * client side changes
 -> disable redux devtools
 -> change api and image routes to heroku from localhost
+
+# other notes
+-> use handleChange function instead
