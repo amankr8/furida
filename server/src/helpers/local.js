@@ -1,23 +1,23 @@
 var fs = require('fs')
 var path = require('path')
 
-exports.deleteFile = (filename) => {
-    fs.unlink(path.join('public/uploads/posts', filename), err => {
-        if (err) throw err
-        else console.log('Associated image deleted!')
-    })
+exports.deleteFile = async (filename) => {
+    try {
+        await fs.unlink(path.join('public/uploads/posts', filename))
+        console.log('Associated image deleted!')
+    } catch (error) {
+        console.error(error)
+    }
 }
 
-exports.deleteFiles = () => {
-    fs.readdir('public/uploads', (err, files) => {
-        if (err) throw err
-        else {
-            for (const file of files) {
-                fs.unlink(path.join('public/uploads/posts', file), err => {
-                    if (err) throw err
-                })
-            }
-            console.log('All associated images deleted!')
+exports.deleteFiles = async () => {
+    try {
+        const files = await fs.readdir('public/uploads/posts')
+        for(const file of files) {
+            await fs.unlink(path.join('public/uploads/posts', file))
         }
-    })
+        console.log('All associated images deleted!')
+    } catch (error) {
+        console.error(error)
+    }
 }

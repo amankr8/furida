@@ -43,7 +43,7 @@ function Menu() {
                     </Link>
                 </ul>
                 <div className="mt-4 text-center">
-                    <a href="/" className="btn btn-outline-light shadow-sm">Logout</a>
+                    <a href="/" className="btn btn-danger shadow-sm">Logout</a>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const Login = () => {
                 <div className="text-center pt-5 mb-4">
                     <img className="rounded-circle shadow-sm mb-4" src={Logo} alt="" height="100" />
                     <h1 className="h3 mb-3 font-weight-normal">ADMIN CONSOLE</h1>
-                    <p>Login only if authorized!</p>
+                    <p>Login only if you are authorized!</p>
                 </div>
 
                 <form onSubmit={handleSubmit}>
