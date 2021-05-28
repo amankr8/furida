@@ -1,6 +1,12 @@
+export const register = (formData) => async (dispatch) => {
+    try {
+        
+    } catch (error) {
+        console.error(error)
+    }
+}
 
-
-export const login = (loginData) => async (dispatch) => {
+export const login = (formData) => async (dispatch) => {
     try {
         
     } catch (error) {

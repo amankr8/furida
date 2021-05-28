@@ -8,15 +8,16 @@ var s3 = new AWS.S3({
 
 exports.uploadFileToS3 = async (file) => {
     try {
-        const data = await fs.readFile(file.path)
+        const Body = await fs.readFileSync(file.path)
         const params = {
             Bucket: 'furida/posts',
             Key: file.filename,
-            Body: data,
+            Body: Body,
             ACL: 'public-read'
         }
-        await s3.putObject(params)
-        console.log('Associated image uploaded to S3')
+        await s3.putObject(params, function () {
+            console.log('Image uploaded to S3')
+        })
     } catch (error) {
         console.error(error)
     }
@@ -28,8 +29,9 @@ exports.deleteFileFromS3 = async (filename) => {
             Bucket: 'furida/posts',
             Key: filename
         }
-        await s3.deleteObject(params)
-        console.log('Associated image at S3 deleted!')
+        await s3.deleteObject(params, function () {
+            console.log('Associated image at S3 deleted')
+        })
     } catch (error) {
         console.error(error)
     }
@@ -37,15 +39,16 @@ exports.deleteFileFromS3 = async (filename) => {
 
 exports.deleteFilesFromS3 = async () => {
     try {
-        const data = await s3.listObjects({ Bucket: 'furida/posts' })
+        const List = await s3.listObjects({ Bucket: 'furida/posts' })
         const params = {
             Bucket: 'furida/posts',
             Delete: {
-                Objects: data.Contents.map(({ Key }) => ({ Key }))
+                Objects: List.Contents.map(({ Key }) => ({ Key }))
             }
         }
-        await s3.deleteObjects(params)
-        console.log('All associated images at S3 deleted!')
+        await s3.deleteObjects(params, function () {
+            console.log('All associated images at S3 deleted')
+        })
     } catch (error) {
         console.error(error)
     }

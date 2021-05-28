@@ -4,9 +4,9 @@ const router = express.Router()
 
 const auth = require('../middleware/auth')
 
-router.get('/', auth, getMessages)
+router.get('/', getMessages)
 router.post('/', sendMessage)
-router.delete('/:id', auth, deleteMessage)
-router.delete('/', auth, deleteMessages)
+router.delete('/:id', deleteMessage)
+router.delete('/', deleteMessages)
 
 module.exports = router
