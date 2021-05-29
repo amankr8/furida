@@ -2,10 +2,10 @@ const express = require('express')
 const { getMessages, sendMessage, deleteMessage, deleteMessages } = require('../controllers/messages')
 const router = express.Router()
 
-const auth = require('../middleware/auth')
+const auth = require('../../middleware/auth')
 
 router.get('/', getMessages)
-router.post('/', sendMessage)
+router.post('/', auth, sendMessage)
 router.delete('/:id', deleteMessage)
 router.delete('/', deleteMessages)
 

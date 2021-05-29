@@ -1,25 +1,20 @@
+require('dotenv').config({ path: 'src/.env' })
 const express = require('express')
 const app = express()
 var cors = require('cors')
-require('dotenv').config()
-const port = process.env.PORT
+const port = process.env.PORT || 8080
 
-const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true, 
-  useFindAndModify: false,
-  useCreateIndex: true
-})
+const connect = require('./config/db')
+connect()
 
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
-app.use('/posts', require('./routes/posts'))
-app.use('/messages', require('./routes/messages'))
-app.use('/users', require('./routes/users'))
+app.use('/posts', require('./components/routes/posts'))
+app.use('/messages', require('./components/routes/messages'))
+app.use('/users', require('./components/routes/users'))
 
 app.get('/', (req, res) => {
   res.render('index')

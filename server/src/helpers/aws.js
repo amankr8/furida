@@ -15,7 +15,7 @@ exports.uploadFileToS3 = async (file) => {
             Body: Body,
             ACL: 'public-read'
         }
-        await s3.putObject(params, function () {
+        await s3.putObject(params, () => {
             console.log('Image uploaded to S3')
         })
     } catch (error) {
@@ -29,7 +29,7 @@ exports.deleteFileFromS3 = async (filename) => {
             Bucket: 'furida/posts',
             Key: filename
         }
-        await s3.deleteObject(params, function () {
+        await s3.deleteObject(params, () => {
             console.log('Associated image at S3 deleted')
         })
     } catch (error) {
@@ -46,7 +46,7 @@ exports.deleteFilesFromS3 = async () => {
                 Objects: List.Contents.map(({ Key }) => ({ Key }))
             }
         }
-        await s3.deleteObjects(params, function () {
+        await s3.deleteObjects(params, () => {
             console.log('All associated images at S3 deleted')
         })
     } catch (error) {

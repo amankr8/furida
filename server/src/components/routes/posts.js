@@ -1,9 +1,9 @@
 const express = require('express')
 const { getPosts, createPost, updatePost, deletePost, deletePosts } = require('../controllers/posts')
 const router = express.Router()
-const upload = require('../helpers')
+const upload = require('../../helpers/multer')
 
-const auth = require('../middleware/auth')
+const auth = require('../../middleware/auth')
 
 router.get('/', getPosts)
 router.post('/', upload, createPost)

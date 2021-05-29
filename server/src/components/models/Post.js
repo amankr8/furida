@@ -1,19 +1,15 @@
 const mongoose = require('mongoose')
 
-const messageSchema = new mongoose.Schema({
-    name: {
+const PostSchema = new mongoose.Schema({
+    desc: {
         type: String,
         required: true
     },
-    email: {
+    url: {
         type: String,
         required: true
     },
-    subject: {
-        type: String,
-        required: true
-    },
-    message: {
+    img: {
         type: String,
         required: true
     },
@@ -23,6 +19,6 @@ const messageSchema = new mongoose.Schema({
     }
 })
 
-const Message = mongoose.model('Message', messageSchema)
+const Post = mongoose.model('Post', PostSchema)
 
-module.exports = Message
+module.exports = Post
