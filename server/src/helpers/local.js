@@ -5,8 +5,8 @@ exports.deleteFile = async (filename) => {
     try {
         await fs.unlinkSync(path.join('public/uploads/posts', filename))
         console.log('Associated image deleted!')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -17,7 +17,7 @@ exports.deleteFiles = async () => {
             await fs.unlinkSync(path.join('public/uploads/posts', file))
         }
         console.log('All associated images deleted!')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }

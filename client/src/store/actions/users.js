@@ -5,8 +5,8 @@ export const register = (formData) => async (dispatch) => {
     try {
         const { data } = await api.register(formData)
         dispatch({ type: REGISTER, payload: data })
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -16,8 +16,8 @@ export const login = (formData, history) => async (dispatch) => {
         dispatch({ type: LOGIN, payload: data })
 
         history.push('/console')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -26,7 +26,7 @@ export const logout = (history) => async (dispatch) => {
         dispatch({ type: LOGOUT })
 
         history.push('/')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }

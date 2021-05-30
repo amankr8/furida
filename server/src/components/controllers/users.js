@@ -29,9 +29,9 @@ exports.register = async (req, res) => {
             username: newUser.username,
             token: token
         })
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ message: 'Err... Something went wrong' })
-        console.error(error)
+        console.error(err)
     }
 }
 
@@ -54,8 +54,8 @@ exports.login = async (req, res) => {
             username: isUser.username,
             token: token
         })
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ message: 'Err... Something went wrong' })
-        console.error(error)
+        console.error(err)
     }
 }

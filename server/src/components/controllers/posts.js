@@ -6,8 +6,8 @@ exports.getPosts = async (req, res) => {
     try {
         const posts = await Post.find().sort({ date: -1 })
         res.json(posts)
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -21,8 +21,8 @@ exports.createPost = async (req, res) => {
         await newPost.save()
         await uploadFileS3(req.file)
         res.json(newPost)
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -30,8 +30,8 @@ exports.updatePost = async (req, res) => {
     try {
         const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.json(updatedPost)
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -42,8 +42,8 @@ exports.deletePost = async (req, res) => {
         await deleteFileS3(doc.img)
         await deleteFile(doc.img)
         res.json('Post deleted successfully!')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -53,7 +53,7 @@ exports.deletePosts = async (req, res) => {
         deleteFilesS3()
         deleteFiles()
         res.json('All posts deleted successfully!')
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }

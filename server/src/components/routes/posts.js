@@ -6,9 +6,9 @@ const upload = require('../../helpers/multer')
 const auth = require('../../middleware/auth')
 
 router.get('/', getPosts)
-router.post('/', upload, createPost)
-router.patch('/:id', updatePost)
-router.delete('/:id', deletePost)
-router.delete('/', deletePosts)
+router.post('/', auth, upload, createPost)
+router.patch('/:id', auth, updatePost)
+router.delete('/:id', auth, deletePost)
+router.delete('/', auth, deletePosts)
 
 module.exports = router

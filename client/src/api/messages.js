@@ -3,7 +3,13 @@ import axios from 'axios'
 // const url = 'https://furida.herokuapp.com/messages'
 const url = 'http://localhost:8080/messages'
 
-export const getMessages = () => axios.get(url)
+const config = {
+    headers: {
+        'content-type': 'application/json',
+        'authorization': localStorage.getItem('token')
+    }
+}
+
+export const getMessages = () => axios.get(url, config)
 export const sendMessage = (formData) => axios.post(url, formData)
-export const deleteMessage = (id) => axios.delete(url + '/' + id)
-export const deleteMessages = () => axios.delete(url)
+export const deleteMessage = (id) => axios.delete(url + '/' + id, config)

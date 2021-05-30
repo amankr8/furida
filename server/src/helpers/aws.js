@@ -18,8 +18,8 @@ exports.uploadFileS3 = async (file) => {
         await s3.putObject(params, () => {
             console.log('Image uploaded to S3')
         })
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -32,8 +32,8 @@ exports.deleteFileS3 = async (filename) => {
         await s3.deleteObject(params, () => {
             console.log('Associated image at S3 deleted')
         })
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
 
@@ -49,7 +49,7 @@ exports.deleteFilesS3 = async () => {
         await s3.deleteObjects(params, () => {
             console.log('All associated images at S3 deleted')
         })
-    } catch (error) {
-        console.error(error)
+    } catch (err) {
+        console.error(err)
     }
 }
