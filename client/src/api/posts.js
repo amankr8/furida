@@ -10,7 +10,7 @@ const config = {
     }
 }
 
-export const getPosts = () => axios.get(url)
+export const getPosts = () => axios.get(url, config)
 export const createPost = (postData) => axios.post(url, postData, config)
 export const updatePost = (id, postData) => axios.patch(url + '/' + id, postData, config)
 export const deletePost = (id) => axios.delete(url + '/' + id, config)

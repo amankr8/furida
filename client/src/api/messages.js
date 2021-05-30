@@ -11,5 +11,5 @@ const config = {
 }
 
 export const getMessages = () => axios.get(url, config)
-export const sendMessage = (formData) => axios.post(url, formData)
+export const sendMessage = (formData) => axios.post(url, formData, config)
 export const deleteMessage = (id) => axios.delete(url + '/' + id, config)
