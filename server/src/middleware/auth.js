@@ -6,10 +6,11 @@ const auth = async (req, res, next) => {
         // Check if token exists
         const token = req.headers.authorization
         if (!token) {
+            console.log(token)
             return res.status(401).json({ message: 'Authorization denied'})
         }
 
-        // Verify token 
+        // Verify token
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
         const user = await User.findById(decoded.id)
         req.user = user
