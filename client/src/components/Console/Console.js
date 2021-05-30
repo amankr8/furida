@@ -14,11 +14,13 @@ const Console = () => {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/console" component={Menu} />
-                    <div className="container">
-                        <Route path="/console/info" component={Info} />
-                        <Route path="/console/posts" component={Posts} />
-                        <Route path="/console/messages" component={Messages} />
-                    </div>
+                    <React.Fragment>
+                        <div className="container">
+                            <Route path="/console/info" component={Info} />
+                            <Route path="/console/posts" component={Posts} />
+                            <Route path="/console/messages" component={Messages} />
+                        </div>
+                    </React.Fragment>
                 </Switch>
             </BrowserRouter>
         </div>

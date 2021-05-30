@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
     const dispatch = useDispatch()
     const history = useHistory()
+    const user = JSON.parse(localStorage.getItem('user'))
 
     return (
         <div>
@@ -48,7 +49,8 @@ const Menu = () => {
                         </div>
                     </Link>
                 </ul>
-                <div className="mt-4 text-center">
+                <p className="mt-4 text-muted text-center"><em>Logged in as: {user.username}</em></p>
+                <div className="text-center">
                     <button type="button" className="btn btn-danger shadow-sm" onClick={() => dispatch(logout(history))}>Logout</button>
                 </div>
             </div>

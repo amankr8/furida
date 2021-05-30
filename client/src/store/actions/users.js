@@ -10,18 +10,22 @@ export const register = (formData) => async (dispatch) => {
     }
 }
 
-export const login = (formData) => async (dispatch) => {
+export const login = (formData, history) => async (dispatch) => {
     try {
         const { data } = await api.login(formData)
         dispatch({ type: LOGIN, payload: data })
+
+        history.push('/console')
     } catch (error) {
         console.error(error)
     }
 }
 
-export const logout = () => async (dispatch) => {
+export const logout = (history) => async (dispatch) => {
     try {
         dispatch({ type: LOGOUT })
+
+        history.push('/')
     } catch (error) {
         console.error(error)
     }

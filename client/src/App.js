@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 
 import { useDispatch } from 'react-redux'
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 import { getPosts } from './store/actions/posts'
 import { getMessages } from './store/actions/messages'
 
@@ -24,13 +24,18 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/login" component={Login} />
                 {
-                    user && (
-                        <div>
+                    user ? (
+                        <React.Fragment>
+                            <Route exact path="/" component={Homepage} />
+                            <Route path="/login"><Redirect to="/console" /></Route>
                             <Route path="/console" component={Console} />
-                        </div>
+                        </React.Fragment>
+                    ) : (
+                        <React.Fragment>
+                            <Route exact path="/" component={Homepage} />
+                            <Route path="/login" component={Login} />
+                        </React.Fragment>
                     )
                 }
             </Switch>
