@@ -44,7 +44,7 @@ const Login = () => {
                         </div>
                         <div className="form-group">
                             <input required type="password" className="form-control" placeholder="Password" value={formData.password} onChange={ (e) => setFormData({ ...formData, password: e.target.value }) } />
-                            <p className="mt-2 text-right"><a href="/password" className="link-secondary">Forgot Password?</a></p>
+                            <p className="mt-2 mr-2 text-right"><a href="/password" className="text-secondary"><small>Forgot Password?</small></a></p>
                         </div>
                         <button type="submit" className="btn btn-danger btn-block">Login</button>
                     </form>

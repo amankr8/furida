@@ -49,7 +49,7 @@ const Menu = () => {
                         </div>
                     </Link>
                 </ul>
-                <p className="mt-4 text-muted text-center"><em>Logged in as: {user}</em></p>
+                <p className="mt-4 text-light text-center"><em>Logged in as: <span className="text-primary">{user.toUpperCase()}</span></em></p>
                 <div className="text-center">
                     <button type="button" className="btn btn-danger shadow-sm" onClick={() => dispatch(logout(history))}>Logout</button>
                 </div>

@@ -20,33 +20,23 @@ const App = () => {
         setUser(localStorage.getItem('user'))
         dispatch(getPosts())
         dispatch(getMessages())
-    }, [user, dispatch])
+    }, [dispatch])
 
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/">
-                    <Homepage />
-                </Route>
+                <Route exact path="/"><Homepage /></Route>
                 {
                     user ? (
-                        <React.Fragment>
-                            <Route path="/console">
-                                <Console />
-                            </Route>
-                            <Route path="/login">
-                                <Redirect to="/console" />
-                            </Route>
-                        </React.Fragment>
+                        <Switch>
+                            <Route path="/console"><Console /></Route>
+                            <Route path="/login"><Redirect to="/console" /></Route>
+                        </Switch>
                     ) : (
-                        <Route path="/login">
-                            <Login />
-                        </Route>
+                        <Route path="/login"><Login /></Route>
                     )
                 }
-                <Route>
-                    <NotFound />
-                </Route>
+                <Route><NotFound /></Route>
             </Switch>
         </BrowserRouter>
     )
