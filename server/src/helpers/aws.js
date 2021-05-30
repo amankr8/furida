@@ -6,7 +6,7 @@ var s3 = new AWS.S3({
     secretAccessKey: process.env.AWS_SECRET_KEY
 })
 
-exports.uploadFileToS3 = async (file) => {
+exports.uploadFileS3 = async (file) => {
     try {
         const Body = await fs.readFileSync(file.path)
         const params = {
@@ -23,7 +23,7 @@ exports.uploadFileToS3 = async (file) => {
     }
 }
 
-exports.deleteFileFromS3 = async (filename) => {
+exports.deleteFileS3 = async (filename) => {
     try {
         const params = {
             Bucket: 'furida/posts',
@@ -37,7 +37,7 @@ exports.deleteFileFromS3 = async (filename) => {
     }
 }
 
-exports.deleteFilesFromS3 = async () => {
+exports.deleteFilesS3 = async () => {
     try {
         const List = await s3.listObjects({ Bucket: 'furida/posts' })
         const params = {

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 
 import { useDispatch } from 'react-redux'
-import { BrowserRouter as Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { getPosts } from './store/actions/posts'
 import { getMessages } from './store/actions/messages'
 
@@ -10,21 +10,32 @@ import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
 import Login from './components/Login/Login'
 
-function App() {
-  const dispatch = useDispatch()
-  
-  useEffect(() => {
-    dispatch(getPosts())
-    dispatch(getMessages())
-  }, [dispatch])
+const App = () => {
+    const [user, setUser] = useState()
 
-  return (
-    <Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route path="/console" component={Console} />
-      <Route path="/login" component={Login} />
-    </Switch>
-  )
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPosts())
+        dispatch(getMessages())
+        setUser(JSON.parse(localStorage.getItem('user')))
+    }, [dispatch])
+
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={Homepage} />
+                <Route path="/login" component={Login} />
+                {
+                    user && (
+                        <div>
+                            <Route path="/console" component={Console} />
+                        </div>
+                    )
+                }
+            </Switch>
+        </BrowserRouter>
+    )
 }
 
 export default App

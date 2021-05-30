@@ -1,7 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { logout } from '../../../store/actions/users'
 import { Link } from 'react-router-dom'
 
-function Menu() {
+const Menu = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
+
     return (
         <div>
             <div className="jumbotron shadow-sm">
@@ -43,7 +49,7 @@ function Menu() {
                     </Link>
                 </ul>
                 <div className="mt-4 text-center">
-                    <a href="/" className="btn btn-danger shadow-sm">Logout</a>
+                    <button type="button" className="btn btn-danger shadow-sm" onClick={() => dispatch(logout(history))}>Logout</button>
                 </div>
             </div>
         </div>

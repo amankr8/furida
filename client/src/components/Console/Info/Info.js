@@ -1,7 +1,7 @@
 import React from 'react'
 import ArrowLeft from '../../modules/ArrowLeft/ArrowLeft'
 
-function Info() {
+const Info = () => {
     return (
         <div>
             <ArrowLeft />

@@ -9,19 +9,19 @@ const Post = (props) => {
 
     const dispatch = useDispatch()
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        dispatch(updatePost(props.post._id, postData))
+        closeModal()
+    }
+
     const resetForm = () => {
         setPostData(props.post)
     }
 
     const closeModal = () => {
         window.$('#edit' + props.post._id).modal('hide')
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        dispatch(updatePost(props.post._id, postData))
-        closeModal()
     }
 
     return (

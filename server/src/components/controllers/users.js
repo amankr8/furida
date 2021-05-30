@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
 
         res.json({
-            user: newUser,
+            username: newUser.username,
             token
         })
     } catch (error) {
@@ -51,18 +51,9 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ id: isUser._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
 
         res.json({
-            user: isUser,
+            username: isUser.username,
             token
         })
-    } catch (error) {
-        res.status(500).json({ message: 'Err... Something went wrong' })
-        console.error(error)
-    }
-}
-
-exports.logout = async (req, res) => {
-    try {
-        
     } catch (error) {
         res.status(500).json({ message: 'Err... Something went wrong' })
         console.error(error)

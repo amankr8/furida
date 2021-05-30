@@ -2,7 +2,7 @@ const Message = require('../models/Message')
 
 exports.getMessages = async (req, res) => {
     try {
-        const msgs = await Message.find().sort({ time: -1 })
+        const msgs = await Message.find().sort({ date: -1 })
         res.json(msgs)
     } catch (error) {
         console.error(error)

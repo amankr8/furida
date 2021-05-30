@@ -12,14 +12,6 @@ const CreatePost = () => {
 
     const dispatch = useDispatch()
 
-    const resetForm = () => {
-        setPostData({
-            desc: '',
-            url: ''
-        })
-        setFile()
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -33,6 +25,13 @@ const CreatePost = () => {
         resetForm()
     }
 
+    const resetForm = () => {
+        setPostData({
+            desc: '',
+            url: ''
+        })
+    }
+
     return (
         <div className="container bg-light rounded pt-5 pb-3 shadow">
             <form onSubmit={handleSubmit}>
@@ -43,7 +42,7 @@ const CreatePost = () => {
                     </div>
                 </div>
                 <div className="form-group">
-                    <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" id="file" filename={file} onChange={ (e) => setFile(e.target.files[0]) } />
+                    <input required type="file" accept=".jpg, .jpeg, .png" className="form-control-file" filename={file} onChange={ (e) => setFile(e.target.files[0]) } />
                 </div>
                 <div className="form-group">
                     <textarea required rows="4" type="text" className="form-control" placeholder="Write something..." value={postData.desc} onChange={ (e) => setPostData({ ...postData, desc: e.target.value }) } />

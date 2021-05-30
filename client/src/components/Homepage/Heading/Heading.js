@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { sendMessage } from '../../../store/actions/messages'
 
 const Heading = () => {
-    const [postData, setPostData] = useState({
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
@@ -13,7 +13,7 @@ const Heading = () => {
     const dispatch = useDispatch()
 
     const resetForm = () => {
-        setPostData({
+        setFormData({
             name: '',
             email: '',
             subject: '',
@@ -28,7 +28,7 @@ const Heading = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(sendMessage(postData))
+        dispatch(sendMessage(formData))
         closeModal()
     }
 
@@ -58,15 +58,15 @@ const Heading = () => {
                             </div>
                             <div className="modal-body">
                                 <div className="form-group">
-                                    <input required type="text" className="form-control" placeholder="Name" value={postData.name} onChange={ (e) => setPostData({ ...postData, name: e.target.value }) } />
+                                    <input required type="text" className="form-control" placeholder="Name" value={formData.name} onChange={ (e) => setFormData({ ...formData, name: e.target.value }) } />
                                 </div>
                                 <div className="form-group">
-                                    <input required type="email" className="form-control" placeholder="Email" value={postData.email} onChange={ (e) => setPostData({ ...postData, email: e.target.value }) } />
+                                    <input required type="email" className="form-control" placeholder="Email" value={formData.email} onChange={ (e) => setFormData({ ...formData, email: e.target.value }) } />
                                 </div>
                                 <div className="form-group">
-                                    <input required type="text" className="form-control" placeholder="Subject" value={postData.subject} onChange={ (e) => setPostData({ ...postData, subject: e.target.value }) } />
+                                    <input required type="text" className="form-control" placeholder="Subject" value={formData.subject} onChange={ (e) => setFormData({ ...formData, subject: e.target.value }) } />
                                 </div>
-                                    <textarea required rows="5" className="form-control" placeholder="Message" value={postData.message} onChange={ (e) => setPostData({ ...postData, message: e.target.value }) } />
+                                    <textarea required rows="5" className="form-control" placeholder="Message" value={formData.message} onChange={ (e) => setFormData({ ...formData, message: e.target.value }) } />
                             </div>
                             <div className="modal-footer">
                                 <button type="submit" className="btn btn-danger btn-block">Send Message</button>

@@ -3,7 +3,7 @@ import CreatePost from './CreatePost/CreatePost'
 import DisplayPosts from './DisplayPosts/DisplayPosts'
 import ArrowLeft from '../../modules/ArrowLeft/ArrowLeft'
 
-function Posts() {
+const Posts = () => {
     return (
         <div>
             <ArrowLeft />

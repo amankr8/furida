@@ -21,8 +21,7 @@ export const login = (formData) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
     try {
-        await api.logout()
-        dispatch({ type: LOGOUT, payload: null })
+        dispatch({ type: LOGOUT })
     } catch (error) {
         console.error(error)
     }
