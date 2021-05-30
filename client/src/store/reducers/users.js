@@ -5,7 +5,8 @@ const reducer = (users = [], action) => {
         case REGISTER:
             return users
         case LOGIN:
-            localStorage.setItem('user', JSON.stringify(action.payload))
+            localStorage.setItem('user', action.payload.username)
+            localStorage.setItem('token', action.payload.token)
             return [action.payload, ...users]
         case LOGOUT:
             localStorage.clear()

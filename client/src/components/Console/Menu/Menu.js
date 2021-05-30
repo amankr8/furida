@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = localStorage.getItem('user')
 
     return (
         <div>
@@ -49,7 +49,7 @@ const Menu = () => {
                         </div>
                     </Link>
                 </ul>
-                <p className="mt-4 text-muted text-center"><em>Logged in as: {user.username}</em></p>
+                <p className="mt-4 text-muted text-center"><em>Logged in as: {user}</em></p>
                 <div className="text-center">
                     <button type="button" className="btn btn-danger shadow-sm" onClick={() => dispatch(logout(history))}>Logout</button>
                 </div>

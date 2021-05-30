@@ -9,6 +9,7 @@ import { getMessages } from './store/actions/messages'
 import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
 import Login from './components/Login/Login'
+import NotFound from './components/NotFound/NotFound'
 
 const App = () => {
     const [user, setUser] = useState()
@@ -16,28 +17,36 @@ const App = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        setUser(localStorage.getItem('user'))
         dispatch(getPosts())
         dispatch(getMessages())
-        setUser(JSON.parse(localStorage.getItem('user')))
-    }, [dispatch])
+    }, [user, dispatch])
 
     return (
         <BrowserRouter>
             <Switch>
+                <Route exact path="/">
+                    <Homepage />
+                </Route>
                 {
                     user ? (
                         <React.Fragment>
-                            <Route exact path="/" component={Homepage} />
-                            <Route path="/login"><Redirect to="/console" /></Route>
-                            <Route path="/console" component={Console} />
+                            <Route path="/console">
+                                <Console />
+                            </Route>
+                            <Route path="/login">
+                                <Redirect to="/console" />
+                            </Route>
                         </React.Fragment>
                     ) : (
-                        <React.Fragment>
-                            <Route exact path="/" component={Homepage} />
-                            <Route path="/login" component={Login} />
-                        </React.Fragment>
+                        <Route path="/login">
+                            <Login />
+                        </Route>
                     )
                 }
+                <Route>
+                    <NotFound />
+                </Route>
             </Switch>
         </BrowserRouter>
     )
