@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
 import './App.css'
 
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+
 import { getPosts } from './store/actions/posts'
-import { getMessages } from './store/actions/messages'
 
 import Homepage from './components/Homepage/Homepage'
 import Console from './components/Console/Console'
@@ -19,7 +19,6 @@ const App = () => {
     useEffect(() => {
         setUser(localStorage.getItem('user'))
         dispatch(getPosts())
-        dispatch(getMessages())
     }, [dispatch])
 
     return (

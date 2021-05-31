@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import { getMessages } from '../../store/actions/messages'
 
 import Navbar from '../modules/Navbar/Navbar'
 import Info from './Info/Info'
@@ -8,17 +11,23 @@ import Messages from './Messages/Messages'
 import Menu from './Menu/Menu'
 
 const Console = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getMessages())
+    }, [dispatch])
+
     return (
         <div>
             <Navbar />
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/console" component={Menu} />
+                    <Route exact path="/console"><Menu /></Route>
                     <React.Fragment>
                         <div className="container">
-                            <Route path="/console/info" component={Info} />
-                            <Route path="/console/posts" component={Posts} />
-                            <Route path="/console/messages" component={Messages} />
+                            <Route path="/console/info"><Info /></Route>
+                            <Route path="/console/posts"><Posts /></Route>
+                            <Route path="/console/messages"><Messages /></Route>
                         </div>
                     </React.Fragment>
                 </Switch>

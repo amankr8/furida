@@ -9,7 +9,7 @@ exports.register = async (req, res) => {
         if(isUser) {
             return res.status(400).json({ message: 'User already exists!' })
         }
-        const isUsername = await User.findOne({ username: req.body.username })
+        const isUsername = await User.findOne({ username: req.body.username.toLowerCase() })
         if(isUsername) {
             return res.status(400).json({ message: 'Username unavailable! try another one' })
         }
@@ -17,7 +17,7 @@ exports.register = async (req, res) => {
         // Encrypt password and save user
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         const newUser = new User({
-            username: req.body.username,
+            username: req.body.username.toLowerCase(),
             email: req.body.email,
             password: hashedPassword
         })
@@ -26,11 +26,10 @@ exports.register = async (req, res) => {
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
 
         res.json({
-            username: newUser.username,
+            user: newUser.username,
             token: token
         })
     } catch (err) {
-        res.status(500).json({ message: 'Err... Something went wrong' })
         console.error(err)
     }
 }
@@ -51,11 +50,10 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ id: isUser._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
 
         res.json({
-            username: isUser.username,
+            user: isUser.username,
             token: token
         })
     } catch (err) {
-        res.status(500).json({ message: 'Err... Something went wrong' })
         console.error(err)
     }
 }
