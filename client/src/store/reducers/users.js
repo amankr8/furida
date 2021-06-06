@@ -9,7 +9,8 @@ const reducer = (users = [], action) => {
             localStorage.setItem('token', action.payload.token)
             return [action.payload, ...users]
         case LOGOUT:
-            localStorage.clear()
+            localStorage.removeItem('user')
+            localStorage.removeItem('token')
             return users
         default:
             return users
