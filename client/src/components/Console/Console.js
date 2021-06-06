@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import { getMessages } from '../../store/actions/messages'
@@ -20,18 +20,16 @@ const Console = () => {
     return (
         <div>
             <Navbar />
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/console"><Menu /></Route>
-                    <React.Fragment>
-                        <div className="container">
-                            <Route path="/console/info"><Info /></Route>
-                            <Route path="/console/posts"><Posts /></Route>
-                            <Route path="/console/messages"><Messages /></Route>
-                        </div>
-                    </React.Fragment>
-                </Switch>
-            </BrowserRouter>
+            <Switch>
+                <Route exact path="/console"><Menu /></Route>
+                <React.Fragment>
+                    <div className="container">
+                        <Route path="/console/info"><Info /></Route>
+                        <Route path="/console/posts"><Posts /></Route>
+                        <Route path="/console/messages"><Messages /></Route>
+                    </div>
+                </React.Fragment>
+            </Switch>
         </div>
     )
 }
