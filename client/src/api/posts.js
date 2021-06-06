@@ -2,24 +2,25 @@ import axios from 'axios'
 
 // const url = 'https://furida.herokuapp.com/posts'
 const url = 'http://localhost:8080/posts'
+const token = localStorage.getItem('token')
 
 const config1 = {
     headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': token
     }
 }
 
 const config2 = {
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': token
     }
 }
 
 const config3 = {
     headers: {
         'Content-Type': 'multipart/form-data',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': token
     }
 }
 
