@@ -6,7 +6,6 @@ const auth = async (req, res, next) => {
         // Check if token exists
         const token = req.headers.authorization
         if (!token) {
-            console.log(token)
             return res.status(401).json({ message: 'Authorization denied'})
         }
 
