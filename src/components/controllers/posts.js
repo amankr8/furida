@@ -1,5 +1,5 @@
 const Post = require('../models/Post')
-const { deleteFile, deleteFiles } = require('../../helpers/local')
+const { deleteFile, deleteFiles } = require('../../helpers')
 const { uploadFileS3, deleteFileS3, deleteFilesS3 } = require('../../helpers/aws')
 
 exports.getPosts = async (req, res) => {
