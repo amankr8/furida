@@ -1,7 +1,7 @@
 # FURIDA
 MERN stack furida web application
 
-## before deploying
+## Before deploying
 * Server side changes
 > change start script to node from nodemon
 > activate aws uploads in controllers
