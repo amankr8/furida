@@ -18,13 +18,15 @@ var fileFilter = function (req, file, cb) {
     }
 }
 
-exports.upload = multer({
+var upload = multer({
     storage,
     fileFilter,
     limits: {
         fileSize: 2 * 1024 * 1024
     }
-}).single('img')
+})
+
+module.exports = upload;
 
 exports.deleteFile = async (filename) => {
     try {
